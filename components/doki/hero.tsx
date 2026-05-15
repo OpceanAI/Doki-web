@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 
-const installCommand = "curl -L https://github.com/OpceanAI/Doki/releases/download/v0.9.1/doki-android-arm64 -o $PREFIX/bin/doki"
+const installCommand = "curl -sL doki.opceanai.com | sh"
 
 export function Hero() {
   const [copied, setCopied] = useState(false)

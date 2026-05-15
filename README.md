@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&labelColor=0A0A0A&logo=react&logoColor=61DAFB">
 <img src="https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&labelColor=0A0A0A&logo=tailwindcss&logoColor=06B6D4">
 <img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&labelColor=0A0A0A&logo=typescript&logoColor=3178C6">
-<img src="https://img.shields.io/badge/License-Apache_2.0-6366F1?style=for-the-badge&labelColor=0A0A0A">
+<img src="https://img.shields.io/badge/License-MIT-6366F1?style=for-the-badge&labelColor=0A0A0A">
 <img src="https://img.shields.io/badge/Mirrors-GitHub_|_GitLab-FCA121?style=for-the-badge&labelColor=0A0A0A">
 
 <br><br>
@@ -212,23 +212,9 @@ Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
 
 ## License
 
-Doki Web is licensed under the Apache License 2.0.
+Doki Web is licensed under the MIT License.
 
-```
-Copyright 2024-2026 OpceanAI
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
+See [LICENSE](LICENSE) for details.
 
 ---
 

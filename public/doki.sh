@@ -141,3 +141,6 @@ printf "\n${GREEN}${BOLD}Doki %s installed successfully.${RESET}\n\n" "${VERSION
 step "Start the daemon: dokid &"
 step "Verify: doki ping"
 printf "\n"
+step "Made by OpceanAI · https://github.com/OpceanAI"
+step "Made with love by awa-omg · https://github.com/awa-omg"
+printf "\n"

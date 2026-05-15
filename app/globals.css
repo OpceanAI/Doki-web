@@ -180,6 +180,21 @@
   to { opacity: 1; transform: scale(1); }
 }
 
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.2); }
+}
+
+@keyframes progress-line {
+  0% { transform: scaleX(0); transform-origin: left; }
+  100% { transform: scaleX(1); transform-origin: left; }
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 .animate-fade-in { animation: fadeIn 0.5s var(--ease-out-expo) forwards; }
 .animate-fade-up { animation: fadeUp 0.6s var(--ease-out-expo) forwards; }
 .animate-slide-in { animation: slideIn 0.5s var(--ease-out-expo) forwards; }
@@ -192,6 +207,7 @@
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-rotate-slow { animation: rotate-slow 20s linear infinite; }
 .animate-scale-in { animation: scale-in 0.3s var(--ease-out-expo) forwards; }
+.animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
 
 /* Stagger children */
 .stagger-children > * {
@@ -335,5 +351,78 @@
 /* Section divider */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border-200), transparent);
+  background: linear-gradient(90deg, transparent 0%, var(--border-200) 20%, var(--border-200) 80%, transparent 100%);
+}
+
+/* Skeleton loading */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-300) 25%,
+    var(--bg-400) 50%,
+    var(--bg-300) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+.skeleton-text {
+  height: 0.875rem;
+  border-radius: 4px;
+}
+
+.skeleton-title {
+  height: 1.5rem;
+  width: 60%;
+  border-radius: 4px;
+}
+
+.skeleton-heading {
+  height: 2.5rem;
+  width: 80%;
+  border-radius: 4px;
+}
+
+.skeleton-card {
+  border-radius: 12px;
+  min-height: 120px;
+}
+
+.skeleton-circle {
+  border-radius: 50%;
+}
+
+.skeleton-pill {
+  border-radius: 9999px;
+  height: 1.5rem;
+  width: 6rem;
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 2px;
+  background: var(--bg-300);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent-cyan);
+  border-radius: 1px;
+  animation: progress-line 0.3s var(--ease-out-expo) forwards;
+}
+
+/* Vercel-style scroll progress */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-cyan);
+  transform-origin: left;
+  z-index: 100;
+  transition: transform 0.1s ease-out;
 }

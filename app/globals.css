@@ -491,3 +491,192 @@ body::before {
   z-index: 100;
   transition: transform 0.1s ease-out;
 }
+
+/* === GRADIENT TEXT ANIMATION === */
+@property --gradient-pos {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: false;
+}
+
+.text-gradient-animated {
+  background: linear-gradient(
+    90deg,
+    var(--accent-cyan),
+    #8b5cf6,
+    #ec4899,
+    var(--accent-cyan),
+    #38bdf8,
+    var(--accent-cyan)
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === SPOTLIGHT TEXT MASK === */
+.spotlight-text {
+  color: var(--text-500);
+  transition: color 0.3s ease;
+}
+.spotlight-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: var(--text-100);
+  mask-image: radial-gradient(
+    circle 100px at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 30%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle 100px at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 30%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  pointer-events: none;
+}
+
+/* === MARQUEE === */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+.marquee-track-reverse {
+  animation: marquee-reverse 35s linear infinite;
+}
+.marquee-track:hover,
+.marquee-track-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* === MESH GRADIENT BLOBS === */
+@keyframes blob-move-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(10%, -15%) scale(1.1); }
+  50% { transform: translate(-5%, 10%) scale(0.95); }
+  75% { transform: translate(-15%, -5%) scale(1.05); }
+}
+@keyframes blob-move-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-10%, 15%) scale(0.9); }
+  50% { transform: translate(15%, -10%) scale(1.1); }
+  75% { transform: translate(5%, 15%) scale(1); }
+}
+@keyframes blob-move-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(15%, 5%) scale(1.05); }
+  50% { transform: translate(-10%, -15%) scale(1.1); }
+  75% { transform: translate(-5%, 10%) scale(0.95); }
+}
+@keyframes blob-move-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-5%, -10%) scale(1.1); }
+  50% { transform: translate(10%, 5%) scale(0.9); }
+  75% { transform: translate(15%, -10%) scale(1.05); }
+}
+.blob-1 { animation: blob-move-1 12s ease-in-out infinite; }
+.blob-2 { animation: blob-move-2 15s ease-in-out infinite; }
+.blob-3 { animation: blob-move-3 10s ease-in-out infinite; }
+.blob-4 { animation: blob-move-4 14s ease-in-out infinite; }
+
+/* === BEAM ANIMATION === */
+@keyframes beam-travel {
+  0% { stroke-dashoffset: 200; }
+  100% { stroke-dashoffset: 0; }
+}
+.beam-line {
+  stroke-dasharray: 60 140;
+  animation: beam-travel 3s linear infinite;
+}
+.beam-line-delay-1 {
+  stroke-dasharray: 40 160;
+  animation: beam-travel 3.5s linear infinite;
+  animation-delay: 0.5s;
+}
+.beam-line-delay-2 {
+  stroke-dasharray: 50 150;
+  animation: beam-travel 4s linear infinite;
+  animation-delay: 1s;
+}
+
+/* === SCROLL-DRIVEN ANIMATIONS === */
+@supports (animation-timeline: view()) {
+  .scroll-reveal {
+    animation: fadeUp 0.6s var(--ease-out-expo) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+  .scroll-reveal-delay-1 {
+    animation: fadeUp 0.6s var(--ease-out-expo) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+    animation-delay: 0.1s;
+  }
+  .scroll-reveal-delay-2 {
+    animation: fadeUp 0.6s var(--ease-out-expo) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+    animation-delay: 0.2s;
+  }
+}
+
+/* === COMPARISON SLIDER === */
+.comparison-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  cursor: ew-resize;
+  z-index: 10;
+}
+.comparison-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 20px var(--accent-cyan-glow);
+  cursor: ew-resize;
+}
+.comparison-slider::-moz-range-thumb {
+  width: 4px;
+  height: 100%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 20px var(--accent-cyan-glow);
+  cursor: ew-resize;
+  border: none;
+}
+
+/* === DOCK === */
+.dock-item {
+  transition: transform 0.2s var(--ease-spring);
+}
+.dock-item:hover {
+  transform: scale(1.5) translateY(-8px);
+}
+
+/* === COUNTER === */
+.counter-value {
+  font-variant-numeric: tabular-nums;
+}

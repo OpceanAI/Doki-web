@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { CodeBlock } from "./code-block"
+import { Beam } from "./beam"
 
 const steps = [
   {
@@ -52,9 +53,7 @@ export function HowItWorks() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-        }
+        if (entry.isIntersecting) setVisible(true)
       },
       { threshold: 0.2 }
     )
@@ -75,7 +74,6 @@ export function HowItWorks() {
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="max-w-[var(--max-width)] mx-auto px-6">
-        {/* Header */}
         <div className={`text-center mb-16 transition-all duration-500 ${visible ? "opacity-100" : "opacity-0 translate-y-4"}`}>
           <p className="text-[var(--accent-cyan)] text-sm font-mono mb-3">How it works</p>
           <h2 className="font-display text-[clamp(32px,5vw,48px)] font-bold tracking-[-0.03em] text-[var(--text-100)] mb-4">
@@ -88,9 +86,7 @@ export function HowItWorks() {
           </p>
         </div>
 
-        {/* Steps */}
         <div className="grid md:grid-cols-3 gap-8 relative">
-          {/* Connecting line (desktop) */}
           <div className="hidden md:block absolute top-16 left-[20%] right-[20%] h-px">
             <div className="w-full h-full bg-[var(--border-100)] relative">
               <div
@@ -99,6 +95,9 @@ export function HowItWorks() {
               />
             </div>
           </div>
+
+          <Beam fromX={16} fromY={12} toX={50} toY={12} className="hidden md:block top-14 left-[16%] w-[34%] h-8 opacity-40" />
+          <Beam fromX={50} fromY={12} toX={84} toY={12} className="hidden md:block top-14 left-[50%] w-[34%] h-8 opacity-40" />
 
           {steps.map((step, i) => {
             const isActive = i <= activeStep
@@ -111,7 +110,6 @@ export function HowItWorks() {
                 }`}
                 style={{ transitionDelay: visible ? `${i * 150}ms` : "0ms" }}
               >
-                {/* Step number / icon */}
                 <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 mx-auto transition-all duration-500 ${
                   isCurrent
                     ? "bg-[var(--accent-cyan-muted)] text-[var(--accent-cyan)] shadow-[0_0_20px_rgba(0,212,255,0.15)]"
@@ -122,7 +120,6 @@ export function HowItWorks() {
                   {step.icon}
                 </div>
 
-                {/* Arrow connector (mobile) */}
                 {i < steps.length - 1 && (
                   <div className="md:hidden flex justify-center py-2">
                     <svg
@@ -139,13 +136,11 @@ export function HowItWorks() {
                   </div>
                 )}
 
-                {/* Content */}
                 <div className="text-center">
                   <h3 className="font-display text-xl font-semibold text-[var(--text-100)] mb-2">{step.title}</h3>
                   <p className="text-sm text-[var(--text-400)] leading-relaxed mb-6">{step.description}</p>
                 </div>
 
-                {/* Code block */}
                 <CodeBlock
                   code={step.code}
                   language="bash"

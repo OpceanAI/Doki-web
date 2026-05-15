@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useCallback } from "react"
+import { useCounter } from "@/hooks/use-counter"
 
 const metrics = [
   { label: "Binary Size", doki: "6.6 MB", docker: "58 MB", podman: "45 MB", win: true },
@@ -11,6 +12,18 @@ const metrics = [
   { label: "OCI Registry", doki: "Yes", docker: "Yes", podman: "Yes", win: false },
   { label: "Compose", doki: "Yes", docker: "Yes", podman: "Yes", win: false },
 ]
+
+function CounterStat({ value, suffix, label }: { value: number, suffix: string, label: string }) {
+  const { count, ref } = useCounter(value, 1200, true)
+  return (
+    <div ref={ref} className="text-center">
+      <div className="text-3xl font-semibold text-[var(--accent-cyan)] font-mono counter-value">
+        {count}{suffix}
+      </div>
+      <div className="text-xs text-[var(--text-500)] mt-1">{label}</div>
+    </div>
+  )
+}
 
 export function Benchmarks() {
   const ref = useRef<HTMLDivElement>(null)
@@ -28,9 +41,8 @@ export function Benchmarks() {
   return (
     <section id="performance" ref={ref} className="relative py-[var(--section-padding)] bg-[var(--bg-100)]">
       <div className="section-divider absolute top-0 left-0 right-0" />
-      
+
       <div className="max-w-[var(--max-width)] mx-auto px-6">
-        {/* Header */}
         <div className={`mb-12 transition-all duration-500 ${visible ? "opacity-100" : "opacity-0 translate-y-4"}`}>
           <p className="text-[var(--accent-cyan)] text-sm font-mono mb-3">Performance</p>
           <h2 className="font-display text-[clamp(32px,5vw,48px)] font-bold tracking-[-0.03em] text-[var(--text-100)] mb-4">
@@ -43,8 +55,16 @@ export function Benchmarks() {
           </p>
         </div>
 
+        {/* Counter stats */}
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 transition-all duration-500 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+          <CounterStat value={6} suffix=".6MB" label="Binary size" />
+          <CounterStat value={12} suffix="MB" label="Memory idle" />
+          <CounterStat value={15} suffix="ms" label="Cold start" />
+          <CounterStat value={0} suffix="" label="Dependencies" />
+        </div>
+
         {/* Table */}
-        <div className={`rounded-xl border border-[var(--border-100)] overflow-hidden transition-all duration-500 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+        <div className={`rounded-xl border border-[var(--border-100)] overflow-hidden transition-all duration-500 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -83,7 +103,7 @@ export function Benchmarks() {
           </div>
         </div>
 
-        <p className={`mt-4 text-xs text-[var(--text-600)] transition-all duration-500 delay-200 ${visible ? "opacity-100" : "opacity-0"}`}>
+        <p className={`mt-4 text-xs text-[var(--text-600)] transition-all duration-500 delay-300 ${visible ? "opacity-100" : "opacity-0"}`}>
           Benchmarks on Snapdragon 685 / 4GB RAM / Termux. Docker/Podman values from x86_64 Linux.
         </p>
       </div>

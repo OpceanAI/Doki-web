@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useCallback } from "react"
+import { useMousePosition } from "@/hooks/use-mouse-position"
 
 const features = [
   {
@@ -61,6 +62,55 @@ const features = [
   },
 ]
 
+function FeatureCard({ feature, visible, delay }: { feature: typeof features[0], visible: boolean, delay: number }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const { x, y } = useMousePosition(ref)
+  const [isHovering, setIsHovering] = useState(false)
+
+  const isLarge = feature.longDescription
+  const isWide = feature.wide
+  const colSpan = isLarge ? "md:col-span-2 md:row-span-2" : isWide ? "md:col-span-2" : "md:col-span-1"
+
+  return (
+    <div
+      ref={ref}
+      className={`group gradient-border-animated rounded-xl p-6 transition-all duration-300 ${colSpan} ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      }`}
+      style={{
+        transitionDelay: visible ? `${delay}ms` : "0ms",
+        background: isHovering
+          ? `radial-gradient(600px circle at ${x}% ${y}%, rgba(0, 212, 255, 0.06), transparent 40%), var(--bg-100)`
+          : "var(--bg-100)",
+      }}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      <div className={`rounded-lg bg-[var(--bg-300)] text-[var(--text-300)] flex items-center justify-center mb-4 group-hover:text-[var(--accent-cyan)] group-hover:bg-[var(--accent-cyan-muted)] transition-colors ${isLarge ? "w-12 h-12" : "w-10 h-10"}`}>
+        {feature.icon}
+      </div>
+      <h3 className={`font-semibold mb-2 relative ${isLarge ? "text-xl text-[var(--text-100)]" : "text-base text-[var(--text-500)]"}`}>
+        {feature.title}
+      </h3>
+      <p className={`leading-relaxed ${isLarge ? "text-sm text-[var(--text-400)] max-w-md" : "text-sm text-[var(--text-400)]"}`}>
+        {feature.description}
+      </p>
+      {isLarge && (
+        <div className="mt-4 flex gap-2 flex-wrap">
+          {["No containerd", "No runc", "No libseccomp", "~15MB"].map((tag) => (
+            <span
+              key={tag}
+              className="text-xs font-mono px-2.5 py-1 rounded-md bg-[var(--bg-300)] text-[var(--text-500)] border border-[var(--border-100)]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
 export function Features() {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
@@ -79,7 +129,6 @@ export function Features() {
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="max-w-[var(--max-width)] mx-auto px-6">
-        {/* Header */}
         <div className={`mb-16 transition-all duration-500 ${visible ? "opacity-100" : "opacity-0 translate-y-4"}`}>
           <p className="text-[var(--accent-cyan)] text-sm font-mono mb-3">Features</p>
           <h2 className="font-display text-[clamp(32px,5vw,48px)] font-bold tracking-[-0.03em] text-[var(--text-100)] mb-4">
@@ -92,46 +141,10 @@ export function Features() {
           </p>
         </div>
 
-        {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {features.map((feature, i) => {
-            const isLarge = feature.longDescription
-            const isWide = feature.wide
-
-            const colSpan = isLarge ? "md:col-span-2 md:row-span-2" : isWide ? "md:col-span-2" : "md:col-span-1"
-
-            return (
-              <div
-                key={feature.title}
-                className={`group gradient-border-animated rounded-xl bg-[var(--bg-100)] p-6 transition-all duration-300 ${colSpan} ${
-                  visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-                style={{ transitionDelay: visible ? `${i * 75}ms` : "0ms" }}
-              >
-                <div className={`rounded-lg bg-[var(--bg-300)] text-[var(--text-300)] flex items-center justify-center mb-4 group-hover:text-[var(--accent-cyan)] group-hover:bg-[var(--accent-cyan-muted)] transition-colors ${isLarge ? "w-12 h-12" : "w-10 h-10"}`}>
-                  {feature.icon}
-                </div>
-                <h3 className={`font-semibold text-[var(--text-100)] mb-2 ${isLarge ? "text-xl" : "text-base"}`}>
-                  {feature.title}
-                </h3>
-                <p className={`text-[var(--text-400)] leading-relaxed ${isLarge ? "text-sm max-w-md" : "text-sm"}`}>
-                  {feature.description}
-                </p>
-                {isLarge && (
-                  <div className="mt-4 flex gap-2 flex-wrap">
-                    {["No containerd", "No runc", "No libseccomp", "~15MB"].map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs font-mono px-2.5 py-1 rounded-md bg-[var(--bg-300)] text-[var(--text-500)] border border-[var(--border-100)]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )
-          })}
+          {features.map((feature, i) => (
+            <FeatureCard key={feature.title} feature={feature} visible={visible} delay={i * 75} />
+          ))}
         </div>
       </div>
     </section>

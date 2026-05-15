@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { MeshGradient } from "./mesh-gradient"
 
 const installCommand = "curl -sL doki.opceanai.com | sh"
 
@@ -21,18 +22,13 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 bg-[var(--bg-000)]" />
-      <div className="absolute inset-0 bg-radial-top" />
+      <MeshGradient />
       <div className="absolute inset-0 bg-dot-pattern opacity-30" />
-      
-      {/* Glow orb */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[var(--accent-cyan)] opacity-[0.03] blur-[120px] rounded-full" />
 
-      {/* Content */}
       <div className="relative z-10 max-w-[var(--max-width)] mx-auto px-6 py-32 text-center">
-        {/* Badge */}
-        <div 
+        <div
           className={`inline-flex items-center gap-2 badge mb-8 transition-all duration-500 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
           }`}
@@ -43,19 +39,17 @@ export function Hero() {
           <span className="text-[var(--text-400)]">OCI push support</span>
         </div>
 
-        {/* Headline */}
-        <h1 
+        <h1
           className={`font-display text-[clamp(40px,8vw,72px)] font-bold leading-[1.05] tracking-[-0.04em] text-[var(--text-100)] mb-6 transition-all duration-500 delay-100 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
           }`}
         >
           Container engine
           <br />
-          <span className="text-gradient-cyan">for Android</span>
+          <span className="text-gradient-animated">for Android</span>
         </h1>
 
-        {/* Subtitle */}
-        <p 
+        <p
           className={`max-w-[520px] mx-auto text-lg text-[var(--text-400)] leading-relaxed mb-10 text-balance transition-all duration-500 delay-150 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
           }`}
@@ -63,8 +57,7 @@ export function Hero() {
           Run Docker containers on your phone. One binary, zero dependencies, no root required.
         </p>
 
-        {/* CTAs */}
-        <div 
+        <div
           className={`flex flex-wrap items-center justify-center gap-3 mb-12 transition-all duration-500 delay-200 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
           }`}
@@ -75,7 +68,7 @@ export function Hero() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </Link>
-          <Link 
+          <Link
             href="https://github.com/OpceanAI/Doki"
             target="_blank"
             rel="noopener noreferrer"
@@ -88,8 +81,7 @@ export function Hero() {
           </Link>
         </div>
 
-        {/* Install command */}
-        <div 
+        <div
           className={`inline-flex items-center gap-3 code-block px-4 py-3 transition-all duration-500 delay-250 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
           }`}
@@ -113,8 +105,7 @@ export function Hero() {
           </button>
         </div>
 
-        {/* Stats */}
-        <div 
+        <div
           className={`flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mt-16 pt-10 border-t border-[var(--border-100)] transition-all duration-500 delay-300 ${
             mounted ? "opacity-100" : "opacity-0"
           }`}
@@ -140,7 +131,6 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
         <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-500 delay-500 ${mounted ? "opacity-100" : "opacity-0"}`}>
           <div className="text-[10px] uppercase tracking-[0.2em] text-[var(--text-600)] mb-2">Scroll</div>
           <div className="w-px h-8 bg-gradient-to-b from-[var(--text-500)] to-transparent mx-auto" />

@@ -4,9 +4,10 @@ import { HowItWorks } from "@/components/doki/how-it-works"
 import { Features } from "@/components/doki/features"
 import { Terminal } from "@/components/doki/terminal"
 import { Benchmarks } from "@/components/doki/benchmarks"
+import { Comparison } from "@/components/doki/comparison"
 import { LogoWall } from "@/components/doki/logo-wall"
+import { Dock } from "@/components/doki/dock"
 import { TestimonialsGlobe } from "@/components/doki/testimonials-globe"
-import { TechStack } from "@/components/doki/tech-stack"
 import { CTA } from "@/components/doki/cta"
 import { Footer } from "@/components/doki/footer"
 
@@ -19,9 +20,10 @@ export default function DokiLandingPage() {
       <Features />
       <Terminal />
       <Benchmarks />
+      <Comparison />
       <LogoWall />
+      <Dock />
       <TestimonialsGlobe />
-      <TechStack />
       <CTA />
       <Footer />
     </main>

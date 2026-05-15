@@ -5,16 +5,17 @@ import { useEffect, useRef, useState } from "react"
 const features = [
   {
     title: "Zero Dependencies",
-    description: "Single static binary. No containerd, no runc, no libseccomp. Copy and run.",
+    description: "Single static binary compiled in Rust. No containerd, no runc, no libseccomp, no systemd. Just copy and run. Ships everything you need in one ~15MB executable.",
+    longDescription: true,
     icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
       </svg>
     ),
   },
   {
     title: "OCI Compatible",
-    description: "Full Docker Hub support. Pull, push, build. Same API as Docker Engine v1.44.",
+    description: "Full Docker Hub support. Pull, push, build. Same API as Docker Engine v1.44. Your docker-compose files work out of the box.",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
@@ -23,7 +24,7 @@ const features = [
   },
   {
     title: "8 Linux Distros",
-    description: "Alpine, Ubuntu, Debian, Arch, Fedora, Gentoo, OpenSUSE, Rocky. One command.",
+    description: "Alpine, Ubuntu, Debian, Arch, Fedora, Gentoo, OpenSUSE, Rocky. One command to bootstrap any distro.",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" />
@@ -32,7 +33,8 @@ const features = [
   },
   {
     title: "ARMv7 + ARM64",
-    description: "Full feature parity for 32-bit ARM. Older phones, Raspberry Pi, embedded systems.",
+    description: "Full feature parity for 32-bit ARM. Older phones, Raspberry Pi, embedded systems. No compromises.",
+    wide: true,
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
@@ -75,7 +77,7 @@ export function Features() {
   return (
     <section id="features" ref={ref} className="relative py-[var(--section-padding)] bg-[var(--bg-000)]">
       <div className="section-divider absolute top-0 left-0 right-0" />
-      
+
       <div className="max-w-[var(--max-width)] mx-auto px-6">
         {/* Header */}
         <div className={`mb-16 transition-all duration-500 ${visible ? "opacity-100" : "opacity-0 translate-y-4"}`}>
@@ -90,23 +92,46 @@ export function Features() {
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {features.map((feature, i) => (
-            <div
-              key={feature.title}
-              className={`group p-6 rounded-xl bg-[var(--bg-100)] border border-[var(--border-100)] hover:border-[var(--border-200)] hover:bg-[var(--bg-200)] transition-all duration-300 ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
-              style={{ transitionDelay: visible ? `${i * 50}ms` : "0ms" }}
-            >
-              <div className="w-10 h-10 rounded-lg bg-[var(--bg-300)] text-[var(--text-300)] flex items-center justify-center mb-4 group-hover:text-[var(--accent-cyan)] group-hover:bg-[var(--accent-cyan-muted)] transition-colors">
-                {feature.icon}
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          {features.map((feature, i) => {
+            const isLarge = feature.longDescription
+            const isWide = feature.wide
+
+            const colSpan = isLarge ? "md:col-span-2 md:row-span-2" : isWide ? "md:col-span-2" : "md:col-span-1"
+
+            return (
+              <div
+                key={feature.title}
+                className={`group gradient-border-animated rounded-xl bg-[var(--bg-100)] p-6 transition-all duration-300 ${colSpan} ${
+                  visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+                style={{ transitionDelay: visible ? `${i * 75}ms` : "0ms" }}
+              >
+                <div className={`rounded-lg bg-[var(--bg-300)] text-[var(--text-300)] flex items-center justify-center mb-4 group-hover:text-[var(--accent-cyan)] group-hover:bg-[var(--accent-cyan-muted)] transition-colors ${isLarge ? "w-12 h-12" : "w-10 h-10"}`}>
+                  {feature.icon}
+                </div>
+                <h3 className={`font-semibold text-[var(--text-100)] mb-2 ${isLarge ? "text-xl" : "text-base"}`}>
+                  {feature.title}
+                </h3>
+                <p className={`text-[var(--text-400)] leading-relaxed ${isLarge ? "text-sm max-w-md" : "text-sm"}`}>
+                  {feature.description}
+                </p>
+                {isLarge && (
+                  <div className="mt-4 flex gap-2 flex-wrap">
+                    {["No containerd", "No runc", "No libseccomp", "~15MB"].map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-mono px-2.5 py-1 rounded-md bg-[var(--bg-300)] text-[var(--text-500)] border border-[var(--border-100)]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
-              <h3 className="font-semibold text-[var(--text-100)] mb-2">{feature.title}</h3>
-              <p className="text-sm text-[var(--text-400)] leading-relaxed">{feature.description}</p>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

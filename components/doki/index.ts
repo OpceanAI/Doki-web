@@ -1,0 +1,8 @@
+export { Navigation } from "./navigation"
+export { Hero } from "./hero"
+export { Features } from "./features"
+export { Benchmarks } from "./benchmarks"
+export { TestimonialsGlobe } from "./testimonials-globe"
+export { TechStack } from "./tech-stack"
+export { CTA } from "./cta"
+export { Footer } from "./footer"

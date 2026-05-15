@@ -93,10 +93,12 @@ printf "  ${DIM}https://github.com/OpceanAI/Doki${RESET}\n\n"
 case "$(uname -m)" in
   aarch64 | arm64)
     arch="android-arm64"
+    arch_init="rust-android-arm64"
     platform_label="Android/Termux (ARM64)"
     ;;
   armv7l | armv8l)
     arch="linux-armv7"
+    arch_init="linux-armv7"
     platform_label="Android/Termux (ARMv7)"
     ;;
   *)
@@ -122,7 +124,7 @@ step "Downloading binaries"
 download_file "${BASE}/doki-${arch}"           "${BIN_DIR}/doki"
 download_file "${BASE}/dokid-${arch}"          "${BIN_DIR}/dokid"
 download_file "${BASE}/doki-compose-${arch}"   "${BIN_DIR}/doki-compose"
-download_file "${BASE}/doki-init-${arch}"      "${BIN_DIR}/doki-init"
+download_file "${BASE}/doki-init-${arch_init}" "${BIN_DIR}/doki-init"
 download_file "${BASE}/doki-proot-${arch}"     "${BIN_DIR}/doki-proot"
 download_file "${BASE}/proot-${arch}"          "${BIN_DIR}/proot"
 

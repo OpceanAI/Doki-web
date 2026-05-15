@@ -1,8 +1,22 @@
 "use client"
 
-import { useEffect, useRef, useState, Suspense, useCallback } from "react"
+import { useEffect, useRef, useState, Suspense, useCallback, Component, type ReactNode } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import * as THREE from "three"
+
+class ErrorBoundary extends Component<{ children: ReactNode; fallback: ReactNode }, { hasError: boolean }> {
+  constructor(props: { children: ReactNode; fallback: ReactNode }) {
+    super(props)
+    this.state = { hasError: false }
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+  render() {
+    if (this.state.hasError) return this.props.fallback
+    return this.props.children
+  }
+}
 
 interface Testimonial {
   id: number
@@ -264,12 +278,23 @@ export function TestimonialsGlobe() {
   const [visible, setVisible] = useState(false)
   const [selected, setSelected] = useState<Testimonial | null>(null)
   const [isMobile, setIsMobile] = useState(false)
+  const [hasWebGL, setHasWebGL] = useState(true)
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768)
     check()
     window.addEventListener("resize", check)
     return () => window.removeEventListener("resize", check)
+  }, [])
+
+  useEffect(() => {
+    try {
+      const canvas = document.createElement("canvas")
+      const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl")
+      if (!gl) setHasWebGL(false)
+    } catch {
+      setHasWebGL(false)
+    }
   }, [])
 
   useEffect(() => {
@@ -284,6 +309,15 @@ export function TestimonialsGlobe() {
   const handleSelect = useCallback((t: Testimonial | null) => {
     setSelected(t)
   }, [])
+
+  const fallbackUI = (
+    <div className="h-[500px] flex items-center justify-center">
+      <div className="text-center">
+        <p className="text-[var(--text-500)] text-sm">3D globe unavailable</p>
+        <p className="text-[var(--text-600)] text-xs mt-1">Use a WebGL-capable browser</p>
+      </div>
+    </div>
+  )
 
   return (
     <section id="community" ref={ref} className="relative py-[var(--section-padding)] bg-[var(--bg-000)]">
@@ -302,17 +336,23 @@ export function TestimonialsGlobe() {
         <div className={`transition-all duration-500 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
           {isMobile ? (
             <MobileCarousel />
-          ) : (
+          ) : hasWebGL ? (
             <div className="relative h-[500px]">
-              <Suspense fallback={
-                <div className="h-full flex items-center justify-center">
-                  <div className="w-6 h-6 border-2 border-[var(--accent-cyan)] border-t-transparent rounded-full animate-spin" />
-                </div>
-              }>
-                <Canvas camera={{ position: [0, 0, 2.5], fov: 50 }}>
-                  <Globe onSelect={handleSelect} selectedId={selected?.id ?? null} />
-                </Canvas>
-              </Suspense>
+              <ErrorBoundary fallback={fallbackUI}>
+                <Suspense fallback={
+                  <div className="h-full flex items-center justify-center">
+                    <div className="w-6 h-6 border-2 border-[var(--accent-cyan)] border-t-transparent rounded-full animate-spin" />
+                  </div>
+                }>
+                  <Canvas
+                    camera={{ position: [0, 0, 2.5], fov: 50 }}
+                    dpr={[1, 2]}
+                    style={{ width: "100%", height: "100%" }}
+                  >
+                    <Globe onSelect={handleSelect} selectedId={selected?.id ?? null} />
+                  </Canvas>
+                </Suspense>
+              </ErrorBoundary>
 
               {selected && (
                 <TestimonialCard testimonial={selected} onClose={() => handleSelect(null)} />
@@ -324,6 +364,8 @@ export function TestimonialsGlobe() {
                 </p>
               )}
             </div>
+          ) : (
+            fallbackUI
           )}
         </div>
       </div>

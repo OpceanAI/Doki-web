@@ -3,6 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { Inter, JetBrains_Mono, Syne } from 'next/font/google'
+import { ScrollProgress } from '@/components/ui/scroll-progress'
+import { BackToTop } from '@/components/ui/back-to-top'
 
 // Initialize fonts
 const inter = Inter({ 
@@ -61,7 +63,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${syne.variable} dark bg-black`}>
       <body className="font-sans antialiased bg-[var(--bg-base)] text-[var(--text-primary)]">
-        {children}
+        <a href="#main-content" className="skip-link">Skip to content</a>
+        <ScrollProgress />
+        <main id="main-content">{children}</main>
+        <BackToTop />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

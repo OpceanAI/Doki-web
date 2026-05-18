@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState, useCallback } from "react"
 import { useMousePosition } from "@/hooks/use-mouse-position"
+import { ScrollReveal } from "@/components/ui/scroll-reveal"
+import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 const features = [
   {
@@ -74,7 +76,7 @@ function FeatureCard({ feature, visible, delay }: { feature: typeof features[0],
   return (
     <div
       ref={ref}
-      className={`group gradient-border-animated rounded-xl p-6 transition-all duration-300 ${colSpan} ${
+      className={`group gradient-border-animated rounded-xl p-6 transition-all duration-500 hover-lift ${colSpan} ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       }`}
       style={{
@@ -86,7 +88,7 @@ function FeatureCard({ feature, visible, delay }: { feature: typeof features[0],
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      <div className={`rounded-lg bg-[var(--bg-300)] text-[var(--text-300)] flex items-center justify-center mb-4 group-hover:text-[var(--accent-cyan)] group-hover:bg-[var(--accent-cyan-muted)] transition-colors ${isLarge ? "w-12 h-12" : "w-10 h-10"}`}>
+      <div className={`rounded-lg bg-[var(--bg-300)] text-[var(--text-300)] flex items-center justify-center mb-4 group-hover:text-[var(--accent-cyan)] group-hover:bg-[var(--accent-cyan-muted)] transition-all duration-300 ${isLarge ? "w-12 h-12" : "w-10 h-10"}`}>
         {feature.icon}
       </div>
       <h3 className={`font-semibold mb-2 relative ${isLarge ? "text-xl text-[var(--text-100)]" : "text-base text-[var(--text-500)]"}`}>
@@ -126,20 +128,22 @@ export function Features() {
 
   return (
     <section id="features" ref={ref} className="relative py-[var(--section-padding)] bg-[var(--bg-000)]">
-      <div className="section-divider absolute top-0 left-0 right-0" />
+      <div className="section-divider-enhanced absolute top-0 left-0 right-0" />
 
-      <div className="max-w-[var(--max-width)] mx-auto px-6">
-        <div className={`mb-16 transition-all duration-500 ${visible ? "opacity-100" : "opacity-0 translate-y-4"}`}>
-          <p className="text-[var(--accent-cyan)] text-sm font-mono mb-3">Features</p>
-          <h2 className="font-display text-[clamp(32px,5vw,48px)] font-bold tracking-[-0.03em] text-[var(--text-100)] mb-4">
-            Everything Docker has.
-            <br />
-            <span className="text-[var(--text-400)]">Without the overhead.</span>
-          </h2>
-          <p className="max-w-lg text-[var(--text-400)] leading-relaxed">
-            Docker cannot run on Android. Doki can. Same OCI images, same workflow, fraction of the resources.
-          </p>
-        </div>
+      <div className="max-w-[var(--max-width)] mx-auto px-4 sm:px-6">
+        <ScrollReveal>
+          <div className="mb-16">
+            <p className="text-[var(--accent-cyan)] text-sm font-mono mb-3">Features</p>
+            <h2 className="font-display text-[clamp(32px,5vw,48px)] font-bold tracking-[-0.03em] text-[var(--text-100)] mb-4">
+              Everything Docker has.
+              <br />
+              <span className="text-[var(--text-400)]">Without the overhead.</span>
+            </h2>
+            <p className="max-w-lg text-[var(--text-400)] leading-relaxed">
+              Docker cannot run on Android. Doki can. Same OCI images, same workflow, fraction of the resources.
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {features.map((feature, i) => (

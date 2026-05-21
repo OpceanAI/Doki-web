@@ -1,45 +1,63 @@
-<div align="center">
+<p align="center">
+  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/banner.svg" alt="Doki Web Banner" width="680">
+</p>
 
-<img src="https://img.shields.io/badge/Doki_Web-1.0.0-6366F1?style=for-the-badge&labelColor=0A0A0A" alt="Doki Web v1.0.0">
-<img src="https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&labelColor=0A0A0A&logo=nextdotjs&logoColor=white">
-<img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&labelColor=0A0A0A&logo=react&logoColor=61DAFB">
-<img src="https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&labelColor=0A0A0A&logo=tailwindcss&logoColor=06B6D4">
-<img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&labelColor=0A0A0A&logo=typescript&logoColor=3178C6">
-<img src="https://img.shields.io/badge/License-MIT-6366F1?style=for-the-badge&labelColor=0A0A0A">
-<img src="https://img.shields.io/badge/Mirrors-GitHub_|_GitLab-FCA121?style=for-the-badge&labelColor=0A0A0A">
+<p align="center">
+  <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Next.js-16-000?style=flat&logo=nextdotjs&logoColor=white" alt="Next.js"></a>
+  <a href="https://react.dev"><img src="https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=black" alt="React"></a>
+  <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind-4-06B6D4?style=flat&logo=tailwindcss&logoColor=white" alt="Tailwind"></a>
+  <a href="https://typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript"></a>
+  <a href="https://github.com/OpceanAI/Doki-web/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-555?style=flat" alt="License"></a>
+  <a href="https://vercel.com"><img src="https://img.shields.io/badge/Deployed_on-Vercel-000?style=flat&logo=vercel&logoColor=white" alt="Vercel"></a>
+</p>
 
-<br><br>
-
-# Doki Web
-
-## The Official Website for Doki Container Engine
-
-Landing page and documentation site for [Doki](https://github.com/OpceanAI/Doki) -- the universal container engine that runs on Android, Linux, and macOS.
+<p align="center">
+  <a href="#features">Features</a> &middot;
+  <a href="#tech-stack">Tech Stack</a> &middot;
+  <a href="#quickstart">Quickstart</a> &middot;
+  <a href="#project-structure">Structure</a> &middot;
+  <a href="#deployment">Deployment</a> &middot;
+  <a href="#contributing">Contributing</a>
+</p>
 
 <br>
 
----
+<p align="center">
+  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
+</p>
 
-**Doki Web** is the official marketing and documentation website for the Doki container engine project. Built with modern web technologies, it showcases Doki's capabilities with a fast, accessible, and visually polished experience.
+# The Official Website for Doki
 
-One framework. One design system. Every device.
+<p align="center">
+  Landing page and documentation site for <a href="https://github.com/OpceanAI/Doki">Doki</a> -- the universal container engine<br>
+  that runs on Android, Linux, and macOS. Built with Next.js 16, React 19, and Tailwind CSS 4.
+</p>
 
----
+<br>
 
-</div>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/divider.svg" alt="Divider" width="600">
+</p>
 
-## Table of Contents
+## Overview
 
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Quickstart](#quickstart)
-- [Project Structure](#project-structure)
-- [Development](#development)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
+Doki Web is the official marketing and documentation website for the Doki container engine project. Built with modern web technologies, it showcases Doki's capabilities with a fast, accessible, and visually polished experience.
 
----
+| | |
+|---|---|
+| **Framework** | Next.js 16 (App Router) |
+| **UI** | React 19 + shadcn/ui |
+| **Styling** | Tailwind CSS 4 |
+| **3D** | Three.js + React Three Fiber |
+| **Charts** | Recharts |
+| **Deploy** | Vercel |
+| **Language** | TypeScript 5.7 |
+
+<br>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/divider.svg" alt="Divider" width="600">
+</p>
 
 ## Features
 
@@ -54,7 +72,7 @@ One framework. One design system. Every device.
 | **Dark Mode** | Dark-first design with automatic theme detection |
 | **Analytics** | Vercel Analytics integration for production |
 
----
+<br>
 
 ## Tech Stack
 
@@ -71,7 +89,11 @@ One framework. One design system. Every device.
 | Analytics | [Vercel Analytics](https://vercel.com/analytics) | 1.6 |
 | Language | [TypeScript](https://typescriptlang.org) | 5.7 |
 
----
+<br>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
+</p>
 
 ## Quickstart
 
@@ -109,40 +131,48 @@ pnpm start
 pnpm lint
 ```
 
----
+<br>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/divider.svg" alt="Divider" width="600">
+</p>
 
 ## Project Structure
 
 ```
 Doki-web/
-├── app/                    Next.js App Router pages
-│   ├── layout.tsx          Root layout with fonts and metadata
-│   ├── page.tsx            Landing page composition
-│   └── globals.css         Global styles and Tailwind config
-├── components/
-│   ├── doki/               Site-specific components
-│   │   ├── navigation.tsx  Header navigation
-│   │   ├── hero.tsx        Hero section with 3D globe
-│   │   ├── features.tsx    Features grid
-│   │   ├── benchmarks.tsx  Performance charts
-│   │   ├── testimonials-globe.tsx  Community testimonials
-│   │   ├── tech-stack.tsx  Technology showcase
-│   │   ├── cta.tsx         Call-to-action section
-│   │   └── footer.tsx      Site footer
-│   └── ui/                 shadcn/ui components
-├── hooks/                  React hooks
-├── lib/                    Utility functions
-├── public/                 Static assets
-├── styles/                 Additional styles
-├── next.config.mjs         Next.js configuration
-├── tailwind.config.ts      Tailwind configuration
-├── tsconfig.json           TypeScript configuration
-└── package.json
+  app/                    Next.js App Router pages
+    layout.tsx            Root layout with fonts and metadata
+    page.tsx              Landing page composition
+    globals.css           Global styles and Tailwind config
+  components/
+    doki/                 Site-specific components
+      navigation.tsx      Header navigation
+      hero.tsx            Hero section with 3D globe
+      features.tsx        Features grid
+      benchmarks.tsx      Performance charts
+      testimonials-globe.tsx  Community testimonials
+      tech-stack.tsx      Technology showcase
+      cta.tsx             Call-to-action section
+      footer.tsx          Site footer
+    ui/                   shadcn/ui components
+  hooks/                  React hooks
+  lib/                    Utility functions
+  public/                 Static assets
+  styles/                 Additional styles
+  next.config.mjs         Next.js configuration
+  tailwind.config.ts      Tailwind configuration
+  tsconfig.json           TypeScript configuration
+  package.json
 ```
 
-**Statistics:** 8 page components, 30+ UI components, zero backend dependencies.
+**8 page components. 30+ UI components. Zero backend dependencies.**
 
----
+<br>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/divider.svg" alt="Divider" width="600">
+</p>
 
 ## Development
 
@@ -169,7 +199,11 @@ No environment variables are required for local development.
 
 For production deployment on Vercel, analytics are automatically enabled.
 
----
+<br>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
+</p>
 
 ## Deployment
 
@@ -195,7 +229,11 @@ pnpm build
 # Output in .next/
 ```
 
----
+<br>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/divider.svg" alt="Divider" width="600">
+</p>
 
 ## Contributing
 
@@ -203,12 +241,18 @@ Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
 
 ### Areas for Contribution
 
-- **Design**: UI/UX improvements, animations, accessibility
-- **Content**: Documentation, tutorials, translations
-- **Performance**: Image optimization, bundle size, loading speed
-- **Features**: New sections, interactive demos, playground
+| Area | Description |
+|:-----|:------------|
+| **Design** | UI/UX improvements, animations, accessibility |
+| **Content** | Documentation, tutorials, translations |
+| **Performance** | Image optimization, bundle size, loading speed |
+| **Features** | New sections, interactive demos, playground |
 
----
+<br>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/divider.svg" alt="Divider" width="600">
+</p>
 
 ## License
 
@@ -216,32 +260,30 @@ Doki Web is licensed under the MIT License.
 
 See [LICENSE](LICENSE) for details.
 
----
+<br>
 
-## Mirrors
+## Links
 
 | Platform | Repository |
 |:---------|:-----------|
 | GitHub | [OpceanAI/Doki-web](https://github.com/OpceanAI/Doki-web) |
 | GitLab | [aguitauwu/doki-web](https://gitlab.com/aguitauwu/doki-web) |
 
----
+### Related
 
-## Related Repos
-
-| Repo | Description |
-|:-----|:------------|
+| Repository | Description |
+|:-----------|:------------|
 | [Doki](https://github.com/OpceanAI/Doki) | The Universal Container Engine |
 | [Doki-proot](https://github.com/OpceanAI/Doki-proot) | Forked proot with JSON IPC daemon mode |
 
----
-
-<div align="center">
-
-### The website for the container engine for the other 3 billion devices.
-
 <br>
 
-[![OpceanAI](https://img.shields.io/badge/OpceanAI-2026-0D1117?style=for-the-badge)](https://github.com/OpceanAI)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/footer.svg" alt="Footer" width="400">
+</p>
 
-</div>
+<p align="center">
+  <a href="https://github.com/OpceanAI">
+    <img src="https://img.shields.io/badge/Made_by_OpceanAI-2026-000?style=flat" alt="OpceanAI">
+  </a>
+</p>

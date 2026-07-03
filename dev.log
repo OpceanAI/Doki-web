@@ -1,0 +1,27 @@
+$ next dev --webpack
+▲ Next.js 16.2.6 (webpack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.28.2:3000
+✓ Ready in 1137ms
+  Skipping creating a lockfile at /data/data/com.termux/files/home/doki-web/.next/dev/lock because we're using WASM bindings
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+
+○ Compiling / ...
+ GET / 200 in 24.5s (next.js: 23.5s, proxy.ts: 31ms, application-code: 958ms)
+ GET / 200 in 268ms (next.js: 10ms, proxy.ts: 39ms, application-code: 219ms)
+ GET / 200 in 481ms (next.js: 39ms, proxy.ts: 29ms, application-code: 412ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+ GET / 200 in 341ms (next.js: 11ms, proxy.ts: 19ms, application-code: 311ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+ GET / 200 in 269ms (next.js: 11ms, proxy.ts: 16ms, application-code: 243ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+ GET / 200 in 898ms (next.js: 151ms, proxy.ts: 67ms, application-code: 680ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+ GET / 200 in 1336ms (next.js: 329ms, proxy.ts: 77ms, application-code: 930ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[?25h

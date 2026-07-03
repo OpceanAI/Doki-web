@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="200" viewBox="0 0 680 200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="50%" style="stop-color:#111111"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0070f3"/>
+      <stop offset="50%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#0070f3"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#e5e5e5"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="680" height="200" rx="16" fill="url(#bg)" stroke="#333" stroke-width="1"/>
+  <!-- Animated dots -->
+  <circle cx="60" cy="50" r="1.5" fill="#0070f3" opacity="0.5">
+    <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="620" cy="40" r="1" fill="#00d4ff" opacity="0.4">
+    <animate attributeName="opacity" values="0.1;0.7;0.1" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="120" cy="160" r="1" fill="#0070f3" opacity="0.3">
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="560" cy="150" r="1.5" fill="#00d4ff" opacity="0.4">
+    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Globe icon -->
+  <g transform="translate(310, 25)" filter="url(#glow)">
+    <circle cx="30" cy="30" r="25" fill="none" stroke="url(#accent)" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <ellipse cx="30" cy="30" rx="12" ry="25" fill="none" stroke="#0070f3" stroke-width="1" opacity="0.6"/>
+    <line x1="5" y1="30" x2="55" y2="30" stroke="#0070f3" stroke-width="1" opacity="0.6"/>
+    <line x1="30" y1="5" x2="30" y2="55" stroke="#0070f3" stroke-width="1" opacity="0.6"/>
+  </g>
+  <!-- Title -->
+  <text x="340" y="110" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="38" font-weight="800" fill="url(#textGrad)" letter-spacing="6">DOKI WEB</text>
+  <!-- Subtitle -->
+  <text x="340" y="138" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888" letter-spacing="3">THE OFFICIAL WEBSITE FOR DOKI</text>
+  <!-- Divider -->
+  <line x1="240" y1="152" x2="440" y2="152" stroke="url(#accent)" stroke-width="1" opacity="0.4"/>
+  <!-- Tech badges -->
+  <text x="340" y="175" text-anchor="middle" font-family="monospace" font-size="10" fill="#666" letter-spacing="1">Next.js 16 · React 19 · Tailwind CSS 4 · TypeScript · Vercel</text>
+  <!-- Bottom line -->
+  <line x1="0" y1="199" x2="680" y2="199" stroke="url(#accent)" stroke-width="1" opacity="0.2"/>
+</svg>

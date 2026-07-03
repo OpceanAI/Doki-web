@@ -1,0 +1,27 @@
+[
+  {
+    "category": "Getting Started",
+    "pages": [
+      { "slug": "home", "title": "Overview" },
+      { "slug": "installation", "title": "Installation" },
+      { "slug": "quick-start", "title": "Quick Start" }
+    ]
+  },
+  {
+    "category": "Core",
+    "pages": [
+      { "slug": "architecture", "title": "Architecture" },
+      { "slug": "isolation-levels", "title": "Isolation Levels" },
+      { "slug": "security", "title": "Security" }
+    ]
+  },
+  {
+    "category": "Reference",
+    "pages": [
+      { "slug": "cli-reference", "title": "CLI Reference" },
+      { "slug": "configuration", "title": "Configuration" },
+      { "slug": "networking", "title": "Networking" },
+      { "slug": "storage", "title": "Storage" }
+    ]
+  }
+]

@@ -77,11 +77,11 @@ export function Comparison() {
               className="absolute inset-0 flex flex-col"
               style={{ background: "var(--parchment-200)" }}
             >
-              <div className="px-10 pt-8 pb-4 flex items-center gap-2">
+              <div className="px-4 sm:px-6 md:px-10 pt-8 pb-4 flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full" style={{ background: "var(--brown-400)" }} />
                 <span className="text-sm font-mono" style={{ color: "var(--brown-500)" }}>Docker</span>
               </div>
-              <div className="flex flex-col justify-center flex-1 px-10 gap-7">
+              <div className="flex flex-col justify-center flex-1 px-4 sm:px-6 md:px-10 gap-4 sm:gap-7">
                 {comparisons.map((c) => (
                   <div key={c.label} className="flex items-center justify-between">
                     <span className="text-sm font-sans" style={{ color: "var(--brown-500)" }}>{c.label}</span>
@@ -99,11 +99,11 @@ export function Comparison() {
                 clipPath:   `inset(0 0 0 ${sliderPos}%)`,
               }}
             >
-              <div className="px-10 pt-8 pb-4 flex items-center justify-end gap-2">
+              <div className="px-4 sm:px-6 md:px-10 pt-8 pb-4 flex items-center justify-end gap-2">
                 <span className="text-sm font-mono" style={{ color: "var(--wine-bright)" }}>Doki</span>
                 <div className="w-2 h-2 rounded-full" style={{ background: "var(--wine-bright)" }} />
               </div>
-              <div className="flex flex-col justify-center flex-1 px-10 gap-7">
+              <div className="flex flex-col justify-center flex-1 px-4 sm:px-6 md:px-10 gap-4 sm:gap-7">
                 {comparisons.map((c) => (
                   <div key={c.label} className="flex items-center justify-between">
                     <span className="text-sm font-sans" style={{ color: "var(--brown-600)" }}>{c.label}</span>

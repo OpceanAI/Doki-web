@@ -108,14 +108,14 @@ export default function InstallPage() {
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 pb-32">
         {/* Platform tabs */}
-        <div className="flex items-center justify-center gap-2 mb-10">
+        <div className="flex items-center justify-center gap-2 mb-10 overflow-x-auto">
           {platforms.map((p) => (
             <button
               key={p.id}
               onClick={() => setPlatform(p.id)}
-              className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 tap-feedback ${
+              className={`px-3 sm:px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap ${
                 platform === p.id
-                  ? "bg-[var(--accent-cyan-muted)] text-[var(--accent-cyan)] shadow-[0_0_20px_rgba(0,212,255,0.1)]"
+                  ? "bg-[var(--accent-cyan-muted)] text-[var(--accent-cyan)]"
                   : "text-[var(--text-500)] hover:text-[var(--text-200)] hover:bg-[var(--bg-300)]"
               }`}
             >

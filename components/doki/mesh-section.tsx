@@ -129,7 +129,7 @@ export function MeshSection() {
 
         {/* Tabs */}
         <div
-          className={`flex items-center gap-6 mb-10 border-b border-[var(--border-subtle)] transition-all duration-500 ${
+          className={`flex items-center gap-3 sm:gap-6 mb-10 border-b border-[var(--border-subtle)] overflow-x-auto transition-all duration-500 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -137,13 +137,13 @@ export function MeshSection() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative pb-3 text-[14px] font-medium transition-colors duration-200  ${
+              className={`relative pb-3 text-[13px] sm:text-[14px] font-medium transition-colors duration-200 whitespace-nowrap ${
                 activeTab === tab.id
                   ? "text-foreground"
                   : "text-[var(--mist)] hover:text-[var(--text-70)]"
               }`}
             >
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-1.5 sm:gap-2">
                 {tab.label}
                 <span
                   className={`text-[10px] px-1.5 py-0.5 rounded font-mono ${

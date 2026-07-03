@@ -98,7 +98,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-[rgba(255,255,255,0.08)]">
           <p className="text-[12px] text-[var(--mist)] font-mono">
-            &copy; 2025 OpceanAI. MIT License.
+            &copy; 2026 OpceanAI. Apache 2.0 License.
           </p>
 
           <div className="flex items-center gap-3">

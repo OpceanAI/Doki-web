@@ -32,12 +32,12 @@ export function CTA() {
           </p>
 
           {/* Install command */}
-          <div className="inline-flex items-center gap-3 bg-[var(--ink)] rounded-[var(--radius-3xl)] px-5 py-3 mb-8">
-            <span className="text-[var(--clay)] font-mono text-[14px] select-none">$</span>
-            <code className="text-[var(--paper)] font-mono text-[14px]">{installCommand}</code>
+          <div className="inline-flex items-center gap-3 bg-[var(--ink)] rounded-full px-4 sm:px-5 py-3 mb-8 max-w-full overflow-x-auto">
+            <span className="text-[var(--clay)] font-mono text-[13px] sm:text-[14px] select-none shrink-0">$</span>
+            <code className="text-[var(--paper)] font-mono text-[13px] sm:text-[14px] whitespace-nowrap">{installCommand}</code>
             <button
               onClick={copyCommand}
-              className="ml-1 p-1.5 rounded hover:bg-[rgba(255,255,255,0.08)] text-[var(--mist)] hover:text-[var(--paper)] transition-colors "
+              className="ml-1 p-1.5 rounded hover:bg-[rgba(255,255,255,0.08)] text-[var(--mist)] hover:text-[var(--paper)] transition-colors shrink-0"
               aria-label={copied ? "Copied" : "Copy command"}
             >
               {copied ? (

@@ -7,7 +7,7 @@
   <a href="https://react.dev"><img src="https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=black" alt="React"></a>
   <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind-4-06B6D4?style=flat&logo=tailwindcss&logoColor=white" alt="Tailwind"></a>
   <a href="https://typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript"></a>
-  <a href="https://github.com/OpceanAI/Doki-web/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-555?style=flat" alt="License"></a>
+  <a href="https://github.com/OpceanAI/Doki-web/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-555?style=flat" alt="License"></a>
   <a href="https://vercel.com"><img src="https://img.shields.io/badge/Deployed_on-Vercel-000?style=flat&logo=vercel&logoColor=white" alt="Vercel"></a>
 </p>
 
@@ -257,7 +257,7 @@ Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
 
 ## License
 
-Doki Web is licensed under the MIT License.
+Doki Web is licensed under the Apache 2.0 License.
 
 See [LICENSE](LICENSE) for details.
 

@@ -79,7 +79,7 @@ export function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {steps.map((step, i) => {
             const isActive = i === activeStep
             return (

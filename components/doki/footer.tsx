@@ -44,8 +44,11 @@ const socialLinks = [
     name: "Hugging Face",
     href: "https://huggingface.co/OpceanAI",
     icon: (
-      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M21.1 8.9a9.5 9.5 0 01-.4 4.3 9.4 9.4 0 01-2 3.5 9.5 9.5 0 01-3.2 2.3 9.4 9.4 0 01-3.9.8 9.4 9.4 0 01-3.9-.8 9.5 9.5 0 01-3.2-2.3 9.4 9.4 0 01-2-3.5 9.5 9.5 0 01-.4-4.3 9.4 9.4 0 011.4-3.3A9.5 9.5 0 017 3.2 9.4 9.4 0 0110.5 2a9.4 9.4 0 013.5.7 9.5 9.5 0 013 2 9.4 9.4 0 012 3 9.5 9.5 0 01.7 3.5 9.4 9.4 0 01-.6 2.7z" />
+      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="3" width="20" height="18" rx="3" stroke="currentColor" strokeWidth="1.5"/>
+        <circle cx="9" cy="10" r="1.5" fill="currentColor"/>
+        <circle cx="15" cy="10" r="1.5" fill="currentColor"/>
+        <path d="M8 15c.5.5 1.5 1.5 4 1.5s3.5-1 4-1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
   },

@@ -1,72 +1,31 @@
 ▲ Next.js 16.2.6 (webpack)
 - Local:         http://localhost:3001
 - Network:       http://192.168.28.2:3001
-✓ Ready in 906ms
+✓ Ready in 1118ms
   Skipping creating a lockfile at /data/data/com.termux/files/home/doki-web/.next/dev/lock because we're using WASM bindings
 ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
 
+○ Compiling / ...
+ GET / 200 in 12.0s (next.js: 9.9s, proxy.ts: 20ms, application-code: 2.1s)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
 ○ Compiling /docs/[slug] ...
- GET / 200 in 337ms (next.js: 6ms, proxy.ts: 19ms, application-code: 312ms)
-[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
-[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
- GET / 200 in 234ms (next.js: 8ms, proxy.ts: 12ms, application-code: 214ms)
-[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
-[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
- GET /docs/home 200 in 495ms (next.js: 190ms, generate-params: 169ms, application-code: 304ms)
+ GET /docs/home 200 in 11.8s (next.js: 11.1s, generate-params: 2.4s, application-code: 757ms)
+ GET /docs/home 200 in 463ms (next.js: 103ms, generate-params: 96ms, application-code: 360ms)
+ GET /docs/home 200 in 4.4s (next.js: 2.6s, generate-params: 1763ms, application-code: 1774ms)
+ GET /api/docs-search 200 in 1839ms (next.js: 1748ms, application-code: 91ms)
+ GET /docs/installation 200 in 27ms (next.js: 8ms, generate-params: 122µs, application-code: 19ms)
+ GET /docs/installation 200 in 1156ms (next.js: 203ms, generate-params: 101ms, application-code: 953ms)
+ GET /docs/installation 200 in 24ms (next.js: 7ms, generate-params: 93µs, application-code: 17ms)
+ GET /docs/installation 200 in 300ms (next.js: 7ms, generate-params: 112µs, application-code: 292ms)
+ GET /docs/installation 200 in 27ms (next.js: 8ms, generate-params: 113µs, application-code: 20ms)
+ GET /docs/installation 200 in 234ms (next.js: 7ms, generate-params: 186µs, application-code: 227ms)
+ GET /docs/installation 200 in 462ms (next.js: 7ms, generate-params: 121µs, application-code: 455ms)
+ GET /docs/quick-start 200 in 540ms (next.js: 7ms, generate-params: 88µs, application-code: 532ms)
+ GET /docs/quick-start 200 in 528ms (next.js: 7ms, generate-params: 85µs, application-code: 521ms)
+ GET /docs/quick-start 200 in 362ms (next.js: 125ms, generate-params: 119ms, application-code: 237ms)
 [browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
- GET /api/docs-search 200 in 2.9s (next.js: 2.8s, application-code: 92ms)
- GET /api/docs-search 200 in 35ms (next.js: 6ms, application-code: 30ms)
- GET /docs/home 200 in 226ms (next.js: 5ms, generate-params: 52µs, application-code: 221ms)
- GET /docs/home 200 in 2.4s (next.js: 528ms, generate-params: 152ms, application-code: 1855ms)
- GET /docs/home 200 in 726ms (next.js: 5ms, generate-params: 63µs, application-code: 721ms)
- GET /docs/home 200 in 1205ms (next.js: 6ms, generate-params: 170µs, application-code: 1198ms)
- GET /docs/home 200 in 644ms (next.js: 142ms, generate-params: 136ms, application-code: 502ms)
-[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
-      <SegmentViewNode type="layout" pagePath="docs/layou...">
-        <SegmentTrieNode>
-        <Layout>
-          <DocsShell sidebar={[...]}>
-            <div className="min-h-scre...">
-              <DocSearch>
-              <header>
-              <div className="mx-auto fl...">
-                <aside className="fixed inse...">
-                  <nav className="h-full ove..." aria-label="Documentat...">
-                    <div className="mb-6">
-                      <h3>
-                      <ul className="flex flex-...">
-                        <li>
-                          <LinkComponent href="/docs/home" className="flex items...">
-                            <a
-+                             className="flex items-center h-8 px-2 text-sm rounded-md transition-colors duration-150 ..."
--                             className="flex items-center h-8 px-2 text-sm rounded-md transition-colors duration-150 ..."
-                              ref={function}
-                              onClick={function onClick}
-                              onMouseEnter={function onMouseEnter}
-                              onTouchStart={function onTouchStart}
-                              href="/docs/home"
-                            >
-                        ...
-                    ...
-                ...
- 
- GET /api/docs-search 200 in 3.1s (next.js: 3.1s, application-code: 94ms)
- GET / 200 in 1214ms (next.js: 161ms, proxy.ts: 52ms, application-code: 1002ms)
-[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
-[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
- GET / 200 in 305ms (next.js: 6ms, proxy.ts: 25ms, application-code: 274ms)
-[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
-[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+ GET /docs/quick-start 200 in 1155ms (next.js: 435ms, generate-params: 124ms, application-code: 720ms)
+ GET /docs/quick-start 200 in 1142ms (next.js: 384ms, generate-params: 143ms, application-code: 758ms)
+ GET /docs/quick-start 200 in 508ms (next.js: 153ms, generate-params: 143ms, application-code: 355ms)
+[?25h

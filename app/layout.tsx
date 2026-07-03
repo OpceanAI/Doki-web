@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#faf9f5' },
-    { media: '(prefers-color-scheme: dark)', color: '#1a1a18' },
+    { media: '(prefers-color-scheme: dark)', color: '#141413' },
   ],
   colorScheme: 'light dark',
   width: 'device-width',
@@ -75,7 +75,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${poppins.variable} ${lora.variable} ${jetbrainsMono.variable} bg-background`}
     >
-      <body className="font-sans antialiased bg-background text-foreground">
+      <body className="font-serif antialiased bg-background text-foreground">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

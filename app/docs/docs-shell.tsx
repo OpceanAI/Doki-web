@@ -39,12 +39,12 @@ export function DocsShell({
     <div className="min-h-screen bg-background">
       <DocSearch open={searchOpen} onOpenChange={setSearchOpen} />
 
-      <header className="sticky top-0 z-50 border-b border-[var(--vellum)] bg-background/95 backdrop-blur-sm">
+      <header className="sticky top-0 z-50 hairline-bottom bg-background/95 backdrop-blur-sm">
         <div className="mx-auto flex h-14 max-w-[1440px] items-center justify-between px-4 md:px-6">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="flex h-9 w-9 items-center justify-center rounded-md text-foreground hover:bg-[var(--vellum)] md:hidden"
+              className="flex h-9 w-9 items-center justify-center rounded-md text-foreground hover:bg-[var(--surface)] md:hidden"
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -59,15 +59,15 @@ export function DocsShell({
           <div className="flex items-center gap-3">
             <button
               onClick={() => setSearchOpen(true)}
-              className="flex items-center gap-2 rounded-md border border-[var(--vellum)] px-3 py-1.5 text-xs text-[var(--mist)] hover:border-[var(--mist)] transition-colors duration-150"
+              className="flex items-center gap-2 rounded-md hairline-all px-3 py-1.5 text-xs text-[var(--text-secondary)] hover:border-[var(--text-secondary)] transition-colors duration-150"
             >
               <Search className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">Search docs...</span>
-              <span className="hidden sm:inline text-[10px] border border-[var(--vellum)] rounded px-1 py-0.5 bg-[var(--vellum)]/50">⌘K</span>
+              <span className="hidden sm:inline text-[10px] hairline-all rounded px-1 py-0.5" style={{ background: 'color-mix(in srgb, var(--surface) 50%, transparent)' }}>⌘K</span>
             </button>
             <Link
               href="/"
-              className="text-xs text-[var(--mist)] hover:text-foreground transition-colors duration-150"
+              className="text-xs text-[var(--text-secondary)] hover:text-foreground transition-colors duration-150"
             >
               Home
             </Link>
@@ -77,11 +77,11 @@ export function DocsShell({
       </header>
 
       <div className="mx-auto flex max-w-[1440px]">
-        <aside className={`fixed inset-y-14 left-0 z-40 w-64 border-r border-[var(--vellum)] bg-background transition-transform duration-200 md:sticky md:block ${mobileOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
+        <aside className={`fixed inset-y-14 left-0 z-40 w-64 hairline-right bg-background transition-transform duration-200 md:sticky md:block ${mobileOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
           <nav className="h-full overflow-y-auto p-4" aria-label="Documentation navigation">
             {sidebar.map((cat) => (
               <div key={cat.category} className="mb-6">
-                <h3 className="mb-2 text-[11px] font-semibold uppercase tracking-widest text-[var(--mist)]">
+                <h3 className="meta-label mb-2">
                   {cat.category}
                 </h3>
                 <ul className="space-y-0.5">
@@ -94,7 +94,7 @@ export function DocsShell({
                           className={`flex items-center gap-2 rounded-md px-3 py-1.5 text-sm transition-all duration-150 ${
                             active
                               ? 'bg-[var(--clay)]/10 text-[var(--clay)] font-medium'
-                              : 'text-foreground/70 hover:bg-[var(--vellum)] hover:text-foreground'
+                              : 'text-foreground/70 hover:bg-[var(--surface)] hover:text-foreground'
                           }`}
                         >
                           <ChevronRight className={`h-3 w-3 transition-all duration-150 ${active ? 'opacity-100' : 'opacity-0'}`} />
@@ -112,7 +112,7 @@ export function DocsShell({
         <div className="flex-1 min-w-0">
           {mobileOpen && (
             <div
-              className="fixed inset-0 z-30 bg-black/20 md:hidden"
+              className="fixed inset-0 z-30 bg-foreground/10 backdrop-blur-sm md:hidden"
               onClick={() => setMobileOpen(false)}
             />
           )}

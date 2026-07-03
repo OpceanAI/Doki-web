@@ -91,7 +91,7 @@ export function BuiltWith() {
               {dockItems.map((item) => (
                 <div
                   key={item.name}
-                  className="flex flex-col items-center gap-2 transition-transform duration-200 hover:scale-110"
+                  className="flex flex-col items-center gap-2"
                 >
                   <div
                     className="w-12 h-12 rounded-lg flex items-center justify-center font-mono font-bold text-[14px]"

@@ -66,7 +66,7 @@ export function DokiVsDocker() {
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <div className="rounded-lg border border-[var(--border)] overflow-hidden">
+          <div className="surface-elevated">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>

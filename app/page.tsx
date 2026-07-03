@@ -15,15 +15,31 @@ export default function DokiLandingPage() {
     <main className="min-h-screen overflow-x-hidden">
       <Navigation />
       <Hero />
-      <Features />
-      <HowItWorks />
-      <Terminal />
-      <BuiltWith />
-      <DokiVsDocker />
-      <MeshSection />
-      <TestimonialsGlobe />
+      <div className="section-band-surface">
+        <Features />
+      </div>
+      <div className="section-band-cream">
+        <HowItWorks />
+      </div>
+      <div className="section-band-dark">
+        <Terminal />
+      </div>
+      <div className="section-band-surface">
+        <BuiltWith />
+      </div>
+      <div className="section-band-cream">
+        <DokiVsDocker />
+      </div>
+      <div className="section-band-surface">
+        <MeshSection />
+      </div>
+      <div className="section-band-cream">
+        <TestimonialsGlobe />
+      </div>
       <CTA />
-      <Footer />
+      <div className="section-band-dark">
+        <Footer />
+      </div>
     </main>
   )
 }

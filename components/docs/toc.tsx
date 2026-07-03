@@ -35,7 +35,7 @@ export function DocToc({ headings }: { headings: Heading[] }) {
 
   return (
     <div>
-      <h4 className="text-xs font-semibold uppercase tracking-widest text-[var(--mist)] mb-3">
+      <h4 className="meta-label mb-3">
         On this page
       </h4>
       <nav className="space-y-1">
@@ -47,8 +47,8 @@ export function DocToc({ headings }: { headings: Heading[] }) {
               h.level === 3 ? 'pl-3' : ''
             } ${
               activeId === h.id
-                ? 'text-[var(--clay)] font-medium'
-                : 'text-[var(--mist)] hover:text-foreground'
+                ? 'text-[var(--clay)] font-medium border-l-2 border-[var(--clay)] pl-2'
+                : 'text-[var(--text-secondary)] hover:text-foreground pl-3'
             }`}
           >
             {h.text}

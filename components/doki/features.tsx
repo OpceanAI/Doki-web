@@ -142,7 +142,7 @@ export function Features() {
                 }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-[var(--mist)] group-hover:text-[var(--clay)] transition-colors duration-200">
+                  <span className="text-[var(--text-secondary)]">
                     {feature.icon}
                   </span>
                   <h3

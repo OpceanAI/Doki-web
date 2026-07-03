@@ -18,7 +18,7 @@ export function DocPrevNext({
           href={`/docs/${prev.slug}`}
           className="group flex items-center gap-2 text-sm text-[var(--mist)] hover:text-foreground transition-colors duration-150"
         >
-          <ChevronLeft className="h-4 w-4 transition-transform duration-150 group-hover:-translate-x-0.5" />
+          <ChevronLeft className="h-4 w-4" />
           <div className="flex flex-col">
             <span className="text-xs text-[var(--mist)]">Previous</span>
             <span className="font-medium">{prev.title}</span>
@@ -36,7 +36,7 @@ export function DocPrevNext({
             <span className="text-xs text-[var(--mist)]">Next</span>
             <span className="font-medium">{next.title}</span>
           </div>
-          <ChevronRight className="h-4 w-4 transition-transform duration-150 group-hover:translate-x-0.5" />
+          <ChevronRight className="h-4 w-4" />
         </Link>
       ) : (
         <div />

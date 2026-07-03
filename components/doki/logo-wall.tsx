@@ -73,7 +73,7 @@ const logos = [
 function LogoItem({ logo }: { logo: (typeof logos)[0] }) {
   return (
     <div className="flex items-center justify-center px-8 py-5 text-[var(--brown-400)] hover:text-[var(--brown-700)] transition-all duration-300 cursor-default group">
-      <div className="opacity-30 group-hover:opacity-80 transition-opacity duration-300 scale-100 group-hover:scale-105 transition-transform">
+      <div className="opacity-30 group-hover:opacity-80 transition-opacity duration-300">
         {logo.svg}
       </div>
     </div>

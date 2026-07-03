@@ -22,12 +22,10 @@ export function DocToc({ headings }: { headings: Heading[] }) {
       },
       { rootMargin: '-80px 0px -60% 0px' }
     )
-
     for (const { id } of headings) {
       const el = document.getElementById(id)
       if (el) observer.observe(el)
     }
-
     return () => observer.disconnect()
   }, [headings])
 
@@ -43,13 +41,11 @@ export function DocToc({ headings }: { headings: Heading[] }) {
           <a
             key={h.id}
             href={`#${h.id}`}
-            className={`block text-xs leading-relaxed transition-colors duration-150 ${
-              h.level === 3 ? 'pl-3' : ''
-            } ${
+            className={`block text-xs leading-relaxed transition-colors duration-150 border-l-2 py-1 ${
               activeId === h.id
-                ? 'text-[var(--clay)] font-medium border-l-2 border-[var(--clay)] pl-2'
-                : 'text-[var(--text-secondary)] hover:text-foreground pl-3'
-            }`}
+                ? 'text-[var(--clay)] font-medium border-[var(--clay)]'
+                : 'text-[var(--text-secondary)] border-transparent hover:text-foreground hover:border-[var(--text-secondary)]'
+            } ${h.level === 3 ? 'pl-5' : h.level === 4 ? 'pl-7' : 'pl-3'}`}
           >
             {h.text}
           </a>

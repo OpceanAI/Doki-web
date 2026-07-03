@@ -3,6 +3,11 @@
 import { useState } from 'react'
 import { Copy, Check, ExternalLink } from 'lucide-react'
 
+function getWikiFilename(slug: string): string {
+  const parts = slug.split('/')
+  return parts[parts.length - 1] + '.md'
+}
+
 export function DocPageActions({ slug }: { slug: string }) {
   const [copiedPage, setCopiedPage] = useState(false)
   const [copiedMd, setCopiedMd] = useState(false)
@@ -24,7 +29,7 @@ export function DocPageActions({ slug }: { slug: string }) {
       setCopiedMd(true)
       setTimeout(() => setCopiedMd(false), 2000)
     } catch {
-      // fallback: ignore
+      // fallback
     }
   }
 
@@ -32,7 +37,7 @@ export function DocPageActions({ slug }: { slug: string }) {
     <div className="flex items-center gap-1 shrink-0">
       <button
         onClick={handleCopyPage}
-        className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-[var(--mist)] hover:bg-[var(--vellum)] hover:text-foreground transition-all duration-150"
+        className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-[var(--text-secondary)] hover:bg-[var(--surface)] hover:text-foreground transition-colors duration-150"
         aria-label="Copy page content"
       >
         {copiedPage ? <Check className="h-3.5 w-3.5 text-[var(--green)]" /> : <Copy className="h-3.5 w-3.5" />}
@@ -40,7 +45,7 @@ export function DocPageActions({ slug }: { slug: string }) {
       </button>
       <button
         onClick={handleCopyMarkdown}
-        className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-[var(--mist)] hover:bg-[var(--vellum)] hover:text-foreground transition-all duration-150"
+        className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-[var(--text-secondary)] hover:bg-[var(--surface)] hover:text-foreground transition-colors duration-150"
         aria-label="Copy as Markdown"
       >
         {copiedMd ? <Check className="h-3.5 w-3.5 text-[var(--green)]" /> : <Copy className="h-3.5 w-3.5" />}
@@ -50,7 +55,7 @@ export function DocPageActions({ slug }: { slug: string }) {
         href={`https://github.com/OpceanAI/doki-wiki/blob/main/${getWikiFilename(slug)}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-[var(--mist)] hover:bg-[var(--vellum)] hover:text-foreground transition-all duration-150"
+        className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-[var(--text-secondary)] hover:bg-[var(--surface)] hover:text-foreground transition-colors duration-150"
         aria-label="Edit this page on GitHub"
       >
         <ExternalLink className="h-3.5 w-3.5" />
@@ -58,20 +63,4 @@ export function DocPageActions({ slug }: { slug: string }) {
       </a>
     </div>
   )
-}
-
-function getWikiFilename(slug: string): string {
-  const map: Record<string, string> = {
-    home: 'Home.md',
-    installation: 'Installation.md',
-    'quick-start': 'Quick-Start.md',
-    architecture: 'Architecture.md',
-    'isolation-levels': 'Isolation-Levels.md',
-    security: 'Security.md',
-    'cli-reference': 'CLI-Reference.md',
-    configuration: 'Configuration.md',
-    networking: 'Networking.md',
-    storage: 'Storage.md',
-  }
-  return map[slug] || `${slug}.md`
 }

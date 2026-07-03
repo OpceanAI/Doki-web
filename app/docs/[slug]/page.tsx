@@ -24,7 +24,6 @@ interface DocData {
 function parseFrontmatter(raw: string): DocData {
   const frontmatter = { title: '', description: '' }
   let content = raw
-
   if (raw.startsWith('---')) {
     const endIndex = raw.indexOf('---', 3)
     if (endIndex !== -1) {
@@ -41,12 +40,10 @@ function parseFrontmatter(raw: string): DocData {
       }
     }
   }
-
   if (!frontmatter.title) {
     const firstH1 = content.match(/^#\s+(.+)$/m)
     frontmatter.title = firstH1 ? firstH1[1].trim() : 'Untitled'
   }
-
   return { frontmatter, raw }
 }
 
@@ -102,7 +99,6 @@ export default async function DocPage({ params }: Props) {
   const { frontmatter } = parseFrontmatter(raw)
   const content = raw.replace(/^---[\s\S]*?---\n/, '')
 
-  // Server-side markdown → HTML rendering
   let html = await renderMarkdown(content)
   html = transformLinks(html)
   html = renderCodeBlocks(html)
@@ -119,7 +115,7 @@ export default async function DocPage({ params }: Props) {
 
   return (
     <div className="flex gap-12">
-      <article className="flex-1 min-w-0 max-w-[760px]">
+      <article className="flex-1 min-w-0 prose-container">
         <DocBreadcrumb
           category={cat?.category || null}
           pageTitle={pageTitle}
@@ -131,7 +127,7 @@ export default async function DocPage({ params }: Props) {
               {frontmatter.title}
             </h1>
             {frontmatter.description && (
-              <p className="mt-2 text-[var(--mist)]">{frontmatter.description}</p>
+              <p className="mt-2 text-sm text-[var(--text-secondary)]">{frontmatter.description}</p>
             )}
           </div>
           <DocPageActions slug={slug} />
@@ -139,11 +135,11 @@ export default async function DocPage({ params }: Props) {
         <DocsContentHtml html={html} />
         <DocPrevNext prev={prevNext.prev} next={prevNext.next} />
       </article>
-      <aside className="hidden xl:block w-56 shrink-0">
-        <div className="sticky top-20">
+      {headings.length > 0 && (
+        <aside className="hidden xl:block w-56 shrink-0 self-start sticky top-20 pt-8 pb-8">
           <DocToc headings={headings} />
-        </div>
-      </aside>
+        </aside>
+      )}
     </div>
   )
 }

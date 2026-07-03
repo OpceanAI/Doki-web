@@ -77,28 +77,27 @@ export function DocsShell({
       </header>
 
       <div className="mx-auto flex max-w-[1440px]">
-        <aside className={`fixed inset-y-14 left-0 z-40 w-64 hairline-right bg-background transition-transform duration-200 md:sticky md:block ${mobileOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
+        <aside className={`fixed inset-y-14 left-0 z-40 w-64 hairline-right bg-background transition-transform duration-200 lg:sticky lg:block ${mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
           <nav className="h-full overflow-y-auto p-4" aria-label="Documentation navigation">
             {sidebar.map((cat) => (
               <div key={cat.category} className="mb-6">
-                <h3 className="meta-label mb-2">
+                <h3 className="meta-label mb-2 px-2">
                   {cat.category}
                 </h3>
-                <ul className="space-y-0.5">
+                <ul className="flex flex-col gap-0.5">
                   {cat.pages.map((page) => {
                     const active = slug === page.slug || (slug === '' && page.slug === 'home')
                     return (
                       <li key={page.slug}>
                         <Link
                           href={`/docs/${page.slug}`}
-                          className={`flex items-center gap-2 rounded-md px-3 py-1.5 text-sm transition-all duration-150 ${
+                          className={`flex items-center h-8 px-2 text-sm rounded-md transition-colors duration-150 ${
                             active
                               ? 'bg-[var(--clay)]/10 text-[var(--clay)] font-medium'
                               : 'text-foreground/70 hover:bg-[var(--surface)] hover:text-foreground'
                           }`}
                         >
-                          <ChevronRight className={`h-3 w-3 transition-all duration-150 ${active ? 'opacity-100' : 'opacity-0'}`} />
-                          {page.title}
+                          <span className="truncate min-w-0">{page.title}</span>
                         </Link>
                       </li>
                     )
@@ -112,7 +111,7 @@ export function DocsShell({
         <div className="flex-1 min-w-0">
           {mobileOpen && (
             <div
-              className="fixed inset-0 z-30 bg-foreground/10 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-30 bg-foreground/10 backdrop-blur-sm lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
           )}

@@ -137,7 +137,7 @@ export function MeshSection() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative pb-3 text-[14px] font-medium transition-colors duration-200 tap-feedback ${
+              className={`relative pb-3 text-[14px] font-medium transition-colors duration-200  ${
                 activeTab === tab.id
                   ? "text-foreground"
                   : "text-[var(--mist)] hover:text-[var(--text-70)]"

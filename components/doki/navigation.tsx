@@ -98,8 +98,8 @@ export function Navigation() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group tap-feedback"
-            aria-label="Doki home"
+className="flex items-center gap-2.5 group"
+             aria-label="Doki home"
           >
             <DokiLogo size={32} />
             <span className="font-sans font-semibold text-foreground text-[15px] tracking-[-0.01em]">
@@ -138,7 +138,7 @@ export function Navigation() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-2">
             <ThemeToggle />
-            <Link href="#install" className="btn-primary !py-2 !px-4 !text-[13px] tap-feedback">
+            <Link href="#install" className="btn-primary !py-2 !px-4 !text-[13px]">
               Get Started
             </Link>
           </div>
@@ -146,7 +146,7 @@ export function Navigation() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 -mr-2 tap-feedback"
+            className="md:hidden p-2 -mr-2"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
           >
@@ -201,7 +201,7 @@ export function Navigation() {
                 key={item.href}
                 href={item.href}
                 onClick={closeSheet}
-                className={`py-4 text-[16px] font-medium border-b border-[var(--border-subtle)] transition-colors tap-feedback font-serif ${
+                className={`py-4 text-[16px] font-medium border-b border-[var(--border-subtle)] transition-colors  font-serif ${
                   activeSection === item.href.slice(1)
                     ? "text-foreground"
                     : "text-[var(--text-70)] hover:text-foreground"
@@ -221,7 +221,7 @@ export function Navigation() {
 
           <div className="mt-6 pt-6 border-t border-[var(--border-subtle)] flex items-center gap-3">
             <ThemeToggle className="shrink-0" />
-            <Link href="#install" onClick={closeSheet} className="btn-primary w-full justify-center tap-feedback">
+            <Link href="#install" onClick={closeSheet} className="btn-primary w-full justify-center">
               Get Started
             </Link>
           </div>

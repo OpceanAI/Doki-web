@@ -161,7 +161,7 @@ export function Terminal() {
               <button
                 key={i}
                 onClick={() => setCurrentCommand(i)}
-                className="h-1.5 rounded-full transition-all duration-300 tap-feedback"
+                className="h-1.5 rounded-full transition-all duration-300 "
                 style={{
                   width: i === currentCommand ? 24 : 6,
                   background: i === currentCommand ? "var(--clay)" : "var(--mist)",

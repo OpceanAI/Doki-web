@@ -619,18 +619,72 @@
 }
 
 /* ============================================
-   SCROLL REVEAL
+   ANTHROPIC-STYLE SCROLL REVEAL
    ============================================ */
 
 .scroll-reveal {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity var(--motion-slow) var(--ease-out-expo),
-              transform var(--motion-slow) var(--ease-out-expo);
+  opacity: 1;
 }
-.scroll-reveal.visible {
+.scroll-reveal-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scroll-reveal-word.revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 500ms var(--ease-out-expo),
+              transform 500ms var(--ease-out-expo);
+}
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   MOBILE NAV ANIMATION (Anthropic clip-path)
+   ============================================ */
+
+@keyframes navMenuOpen {
+  from { clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); }
+  to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+@keyframes navMenuClose {
+  from { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  to { clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); }
+}
+
+.nav-mobile-enter {
+  animation: navMenuOpen 400ms ease-in-out forwards;
+}
+.nav-mobile-exit {
+  animation: navMenuClose 400ms ease-in-out forwards;
+}
+
+/* ============================================
+   ROTATING TEXT (Anthropic data-rotate)
+   ============================================ */
+
+@keyframes rotateTextEnter {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes rotateTextExit {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-16px); }
+}
+
+.rotate-text-item {
+  display: inline-block;
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ============================================
@@ -702,7 +756,15 @@
 }
 
 /* ============================================
-   DOCS CONTENT — ITEM 2: reading column ~680px
+   PROSE CONTAINER — Anthropic 3-column doc layout
+   ============================================ */
+
+.prose-container {
+  max-width: 56rem;
+}
+
+/* ============================================
+   DOCS CONTENT — Anthropic reading experience
    ============================================ */
 
 .docs-content {
@@ -710,6 +772,10 @@
   line-height: 1.75;
   color: var(--text-80);
   max-width: var(--measure);
+}
+
+.docs-content > :first-child {
+  margin-top: 0;
 }
 
 .docs-content h2 {
@@ -722,6 +788,7 @@
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border);
+  scroll-margin-top: 6rem;
 }
 
 .docs-content h3 {
@@ -731,6 +798,7 @@
   color: var(--text);
   margin-top: 2rem;
   margin-bottom: 0.75rem;
+  scroll-margin-top: 6rem;
 }
 
 .docs-content h4 {
@@ -740,6 +808,7 @@
   color: var(--text);
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
+  scroll-margin-top: 5rem;
 }
 
 .docs-content p {
@@ -778,36 +847,12 @@
 .docs-content th {
   text-align: left;
   padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid var(--border);
   font-weight: 600;
   color: var(--text);
 }
 .docs-content td {
   padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid var(--border);
   color: var(--text-80);
-}
-
-.docs-content pre {
-  background: var(--ink);
-  border-radius: var(--radius-md);
-  padding: 1rem;
-  overflow-x: auto;
-  margin: 1.5rem 0;
-}
-
-.docs-content code {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  line-height: 1.6;
-}
-
-.docs-content :not(pre) > code {
-  background: var(--surface);
-  padding: 0.125rem 0.375rem;
-  border-radius: 4px;
-  color: var(--text);
-  font-size: 0.8125rem;
 }
 
 .docs-content hr {
@@ -817,11 +862,16 @@
 }
 
 .docs-content blockquote {
-  border-left: 3px solid var(--clay);
-  padding-left: 1rem;
   margin: 1.5rem 0;
-  color: var(--text-secondary);
+}
+
+.docs-content blockquote.callout {
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  border-left: 4px solid var(--callout-note);
+  background: var(--surface);
   font-style: italic;
+  color: var(--text-80);
 }
 
 .docs-content strong {

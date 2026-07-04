@@ -134,19 +134,19 @@ function GlobeScene({
 
   return (
     <group ref={groupRef}>
-      {/* Sphere wireframe */}
+      {}
       <mesh>
         <sphereGeometry args={[1, 96, 96]} />
         <meshBasicMaterial color="#b0aea5" wireframe transparent opacity={0.06} />
       </mesh>
 
-      {/* Atmosphere glow */}
+      {}
       <mesh>
         <sphereGeometry args={[1.04, 64, 64]} />
         <meshBasicMaterial color={accent} transparent opacity={0.03} side={THREE.BackSide} />
       </mesh>
 
-      {/* Latitude lines */}
+      {}
       {[-60, -30, 0, 30, 60].map((lat) => {
         const r = Math.cos((lat * Math.PI) / 180)
         const y = Math.sin((lat * Math.PI) / 180)
@@ -158,7 +158,7 @@ function GlobeScene({
         )
       })}
 
-      {/* Meridian lines */}
+      {}
       {[0, 45, 90, 135].map((lng) => (
         <mesh key={lng} rotation={[0, (lng * Math.PI) / 180, 0]}>
           <torusGeometry args={[1, 0.0015, 8, 64]} />
@@ -166,7 +166,7 @@ function GlobeScene({
         </mesh>
       ))}
 
-      {/* Arcs between nodes */}
+      {}
       {arcs.map((arc, i) => {
         const fromNode = nodeMap.get(arc.from)
         const toNode = nodeMap.get(arc.to)
@@ -189,13 +189,13 @@ function GlobeScene({
         )
       })}
 
-      {/* Nodes */}
+      {}
       {nodes.map((node) => {
         const pos = latLngToPos(node.lat, node.lng, 1.02)
         const isSelected = selectedId === node.id
         return (
           <group key={node.id} position={pos}>
-            {/* Outer glow */}
+            {}
             <mesh>
               <sphereGeometry args={[0.06, 16, 16]} />
               <meshBasicMaterial
@@ -204,7 +204,7 @@ function GlobeScene({
                 opacity={isSelected ? 0.4 : 0.15}
               />
             </mesh>
-            {/* Inner core */}
+            {}
             <mesh
               onPointerOver={interactive ? () => setHovered(true) : undefined}
               onPointerOut={interactive ? () => setHovered(false) : undefined}
@@ -213,7 +213,7 @@ function GlobeScene({
               <sphereGeometry args={[0.025, 16, 16]} />
               <meshBasicMaterial color={isSelected ? accent : "#faf9f5"} />
             </mesh>
-            {/* Pulse ring when selected */}
+            {}
             {isSelected && (
               <mesh rotation={[Math.PI / 2, 0, 0]}>
                 <ringGeometry args={[0.05, 0.07, 32]} />

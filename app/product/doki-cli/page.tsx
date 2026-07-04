@@ -77,7 +77,7 @@ export default function DokiCliPage() {
         </div>
       </section>
 
-      {/* Quick commands */}
+      {}
       <section className="section-band-surface" style={{ paddingTop: "var(--section-y)", paddingBottom: "var(--section-y)" }}>
         <div className="max-w-[var(--max-width)] mx-auto px-[var(--gutter)]">
           <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--mist)] mb-4">Quick start</p>
@@ -92,7 +92,7 @@ export default function DokiCliPage() {
         </div>
       </section>
 
-      {/* Features grid */}
+      {}
       <section style={{ paddingTop: "var(--section-y)", paddingBottom: "var(--section-y)" }}>
         <div className="max-w-[var(--max-width)] mx-auto px-[var(--gutter)]">
           <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--mist)] mb-4">Features</p>
@@ -110,7 +110,7 @@ export default function DokiCliPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {}
       <section className="section-band-cream py-24 text-center">
         <div className="max-w-[var(--measure)] mx-auto px-[var(--gutter)]">
           <h2 className="font-sans font-semibold text-[clamp(28px,3.5vw,40px)] tracking-[-0.02em] text-foreground mb-4">

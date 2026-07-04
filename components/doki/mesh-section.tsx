@@ -108,7 +108,7 @@ export function MeshSection() {
       style={{ paddingTop: "var(--section-y)", paddingBottom: "var(--section-y)" }}
     >
       <div className="max-w-[var(--max-width)] mx-auto px-[var(--gutter)]">
-        {/* Header */}
+        {}
         <div
           className={`mb-12 max-w-[var(--measure)] transition-all duration-500 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -129,7 +129,7 @@ export function MeshSection() {
           </p>
         </div>
 
-        {/* Tabs */}
+        {}
         <div
           className={`flex items-center gap-3 sm:gap-6 mb-10 border-b border-[var(--border-subtle)] overflow-x-auto transition-all duration-500 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -164,13 +164,13 @@ export function MeshSection() {
           ))}
         </div>
 
-        {/* Content */}
+        {}
         <div
           className={`grid md:grid-cols-2 gap-8 items-start transition-all duration-500 delay-100 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          {/* Left: info + stats */}
+          {}
           <div>
             <h3 className="font-sans text-[20px] font-semibold text-foreground mb-4">
               {t(activeTab + 'Title')}
@@ -179,7 +179,7 @@ export function MeshSection() {
               {t(activeTab + 'Desc')}
             </p>
 
-            {/* Stats grid */}
+            {}
             <div className="grid grid-cols-2 gap-3 mb-5">
               {content.stats.map((stat) => (
                 <div
@@ -206,7 +206,7 @@ export function MeshSection() {
             )}
           </div>
 
-          {/* Right: code terminal */}
+          {}
           <CodeBlock
             code={content.code}
             language="bash"

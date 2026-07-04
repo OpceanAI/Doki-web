@@ -27,7 +27,7 @@ export function TechStack() {
       
       <div className="max-w-[var(--max-width)] mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left: Header + Stats */}
+          {}
           <div className={`transition-all duration-500 ${visible ? "opacity-100" : "opacity-0 translate-y-4"}`}>
             <p className="text-[var(--accent-cyan)] text-sm font-mono mb-3">Tech Stack</p>
             <h2 className="font-display text-[clamp(32px,5vw,48px)] font-bold tracking-[-0.03em] text-[var(--text-100)] mb-8">
@@ -60,7 +60,7 @@ export function TechStack() {
             </div>
           </div>
 
-          {/* Right: Origin card */}
+          {}
           <div className={`transition-all duration-500 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <div className="p-8 bg-[var(--bg-200)] border border-[var(--border-100)] rounded-xl">
               <div className="flex items-center gap-4 mb-6">

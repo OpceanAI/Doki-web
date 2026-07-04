@@ -4,17 +4,17 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* === ANTHROPIC-LEVEL DESIGN SYSTEM === */
-  /* Editorial restraint, whitespace as transition, single dominant accent */
+  
+  
 
-  /* Neutral palette — ABSOLUTE (never swap in dark mode) */
+  
   --ink: #141413;
   --paper: #faf9f5;
   --mist: #b0aea5;
   --vellum: #e8e6dc;
   --hairline: #d1cfc5;
 
-  /* Accent system — clay (terracotta) dominant */
+  
   --clay: #d97757;
   --clay-deep: #c6613f;
   --green: #788c5d;
@@ -24,13 +24,13 @@
   --sky: #6a9bcc;
   --heather: #cbcadb;
 
-  /* Accent sub-palette for callouts */
+  
   --callout-note: #6a9bcc;
   --callout-tip: #788c5d;
   --callout-warning: #c46686;
   --callout-danger: #c0392b;
 
-  /* Semantic aliases — these SWAP in dark mode */
+  
   --bg: var(--paper);
   --surface: var(--vellum);
   --surface-hover: #e3dacc;
@@ -41,13 +41,11 @@
   --border-subtle: rgba(176, 174, 165, 0.3);
   --border: var(--hairline);
 
-  /* Text opacity variants — these SWAP in dark mode */
+  
   --text-70: rgba(20, 20, 19, 0.7);
   --text-80: rgba(20, 20, 19, 0.8);
 
-  /* =========================================
-     SPACING SCALE (8px base)
-     ========================================= */
+  
 
   --space-1: 8px;
   --space-2: 16px;
@@ -59,20 +57,20 @@
   --space-8: 96px;
   --space-9: 128px;
 
-  /* Layout */
+  
   --max-width: 1200px;
   --measure: 680px;
   --gutter: clamp(24px, 4vw, 48px);
   --section-y: 96px;
 
-  /* Radius — 3-step Anthropic scale */
+  
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  /* Motion tokens */
+  
   --motion-fast: 150ms;
   --motion-base: 300ms;
   --motion-slow: 500ms;
@@ -82,7 +80,7 @@
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-in-out-sharp: cubic-bezier(0.77, 0, 0.175, 1);
 
-  /* Z-index */
+  
   --z-base: 1;
   --z-dropdown: 100;
   --z-sticky: 200;
@@ -90,7 +88,7 @@
   --z-modal: 400;
   --z-toast: 500;
 
-  /* Component-specific variables (referenced by dock, beam, spotlight-card) */
+  
   --bg-000: var(--paper);
   --bg-100: var(--surface);
   --bg-200: var(--vellum);
@@ -100,7 +98,7 @@
   --accent-cyan: #6a9bcc;
   --section-padding: var(--section-y);
 
-  /* shadcn compatibility */
+  
   --background: var(--bg);
   --foreground: var(--text);
   --card: var(--bg);
@@ -205,7 +203,7 @@
     font-feature-settings: 'kern' 1, 'liga' 1;
   }
 
-  /* === FOCUS RING — ITEM 7: outline 2px solid ink, focus-visible only === */
+  
   a, button, [tabindex], input, textarea, select {
     outline-offset: 2px;
   }
@@ -219,7 +217,7 @@
     outline-offset: 2px;
   }
 
-  /* === SELECTION — ITEM 12: clay 50% opacity === */
+  
   ::selection {
     background: rgba(217, 119, 87, 0.5);
   }
@@ -227,20 +225,20 @@
     background: transparent;
   }
 
-  /* === DISABLED STATE — ITEM 6: opacity 0.4, cursor not-allowed === */
+  
   *:disabled {
     opacity: 0.4;
     cursor: not-allowed;
   }
 
-  /* === LINK UNDERLINE — ITEM 11: generous offset === */
+  
   a:not([class]) {
     text-decoration: underline;
     text-underline-offset: 0.2em;
     text-decoration-thickness: 0.06em;
   }
 
-  /* === LINE-HEIGHT TRIM — ITEM 23 === */
+  
   h1, h2, h3, h4, h5, h6, p:not(.u-text-trim-off)::before {
     content: "";
     display: table;
@@ -253,7 +251,7 @@
   }
 }
 
-/* === GLOBAL SCROLLBAR (thin) === */
+
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
@@ -263,7 +261,7 @@
 ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
 ::-webkit-scrollbar-corner { background: transparent; }
 
-/* === REDUCED MOTION === */
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -273,9 +271,7 @@
   }
 }
 
-/* ============================================
-   BUTTON SYSTEM — ITEM 3: 0px radius, no shadows
-   ============================================ */
+
 
 .btn {
   display: inline-flex;
@@ -339,9 +335,7 @@
   pointer-events: none;
 }
 
-/* ============================================
-   SURFACE / CARDS — ITEM 4: no shadows, ITEM 13: hierarchy
-   ============================================ */
+
 
 .surface-card {
   background: var(--surface);
@@ -365,9 +359,7 @@
   padding: 24px;
 }
 
-/* ============================================
-   HAIRLINE BORDERS — ITEM 15: 1px solid --border-subtle
-   ============================================ */
+
 
 .hairline-bottom {
   border-bottom: 1px solid var(--border-subtle);
@@ -385,9 +377,7 @@
   border-right: 1px solid var(--border-subtle);
 }
 
-/* ============================================
-   SECTION ALTERNATION — ITEM 1: band rhythm
-   ============================================ */
+
 
 .section-band {
   padding-top: var(--section-y);
@@ -418,9 +408,7 @@
   padding-bottom: 48px;
 }
 
-/* ============================================
-   CODE BLOCK — ITEM 22: custom scrollbar
-   ============================================ */
+
 
 .code-block {
   background: var(--ink);
@@ -461,9 +449,7 @@
   background: transparent;
 }
 
-/* ============================================
-   EDITORIAL CARD — ITEM 14: 24px radius
-   ============================================ */
+
 
 .editorial-card {
   background: var(--surface);
@@ -471,9 +457,7 @@
   padding: var(--space-5);
 }
 
-/* ============================================
-   CALLOUT BOXES — ITEM 17: left colored border
-   ============================================ */
+
 
 .callout {
   border-radius: var(--radius-md);
@@ -502,9 +486,7 @@
   background: var(--surface);
 }
 
-/* ============================================
-   META LABELS — ITEM 10: mono uppercase
-   ============================================ */
+
 
 .meta-label {
   font-family: var(--font-mono);
@@ -515,9 +497,7 @@
   letter-spacing: normal;
 }
 
-/* ============================================
-   INLINE CODE — ITEM 19: bg surface
-   ============================================ */
+
 
 .inline-code {
   background: var(--surface);
@@ -528,9 +508,7 @@
   color: var(--text);
 }
 
-/* ============================================
-   STAT — ITEM 21: large serif numbers
-   ============================================ */
+
 
 .stat-number {
   font-family: var(--font-serif);
@@ -546,9 +524,7 @@
   color: var(--text-tertiary);
 }
 
-/* ============================================
-   LOGO MARQUEE — ITEM 20: infinite scroll
-   ============================================ */
+
 
 .logo-marquee {
   overflow: hidden;
@@ -566,9 +542,7 @@
   100% { transform: translateX(-100%); }
 }
 
-/* ============================================
-   CODE TABS — ITEM 16: language labels
-   ============================================ */
+
 
 .code-tabs {
   display: flex;
@@ -594,9 +568,7 @@
   border-bottom-color: var(--clay);
 }
 
-/* ============================================
-   NAVIGATION
-   ============================================ */
+
 
 .nav-link {
   font-size: 14px;
@@ -607,9 +579,7 @@
   color: var(--text);
 }
 
-/* ============================================
-   SKIP LINK
-   ============================================ */
+
 
 .skip-link {
   position: absolute;
@@ -628,9 +598,7 @@
   top: 0;
 }
 
-/* ============================================
-   ANTHROPIC-STYLE SCROLL REVEAL
-   ============================================ */
+
 
 .scroll-reveal {
   opacity: 1;
@@ -658,9 +626,7 @@
   transform: translateY(0);
 }
 
-/* ============================================
-   MOBILE NAV ANIMATION (Anthropic clip-path)
-   ============================================ */
+
 
 @keyframes navMenuOpen {
   from { clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); }
@@ -678,9 +644,7 @@
   animation: navMenuClose 400ms ease-in-out forwards;
 }
 
-/* ============================================
-   ROTATING TEXT (Anthropic data-rotate)
-   ============================================ */
+
 
 @keyframes rotateTextEnter {
   0% { opacity: 0; transform: translateY(16px); }
@@ -697,9 +661,7 @@
               transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ============================================
-   STATUS DOT
-   ============================================ */
+
 
 .status-dot {
   width: 6px;
@@ -708,9 +670,7 @@
   background: var(--green);
 }
 
-/* ============================================
-   SCROLL PROGRESS BAR
-   ============================================ */
+
 
 .scroll-progress {
   position: fixed;
@@ -724,9 +684,7 @@
   transition: transform var(--motion-fast) ease-out;
 }
 
-/* ============================================
-   BACK TO TOP
-   ============================================ */
+
 
 .back-to-top {
   position: fixed;
@@ -753,9 +711,7 @@
   background: var(--surface);
 }
 
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
+
 
 .text-balance {
   text-wrap: balance;
@@ -765,17 +721,13 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* ============================================
-   PROSE CONTAINER — Anthropic 3-column doc layout
-   ============================================ */
+
 
 .prose-container {
   max-width: 56rem;
 }
 
-/* ============================================
-   DOCS CONTENT — Anthropic reading experience
-   ============================================ */
+
 
 .docs-content {
   font-size: 15px;

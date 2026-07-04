@@ -31,7 +31,7 @@ export function DocPageActions({ slug }: { slug: string }) {
       setCopiedMd(true)
       setTimeout(() => setCopiedMd(false), 2000)
     } catch {
-      // fallback
+      
     }
   }
 

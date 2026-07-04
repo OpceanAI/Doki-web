@@ -35,7 +35,7 @@ export function BuiltWith() {
       style={{ paddingTop: "var(--section-y)", paddingBottom: "var(--section-y)" }}
     >
       <div className="max-w-[var(--max-width)] mx-auto px-[var(--gutter)]">
-        {/* Header */}
+        {}
         <div
           className={`mb-16 max-w-[var(--measure)] transition-all duration-500 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -53,7 +53,7 @@ export function BuiltWith() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
-          {/* Stats bars */}
+          {}
           <div
             className={`space-y-6 transition-all duration-500 delay-100 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -83,7 +83,7 @@ export function BuiltWith() {
             ))}
           </div>
 
-          {/* Dock */}
+          {}
           <div
             className={`flex justify-center transition-all duration-500 delay-200 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"

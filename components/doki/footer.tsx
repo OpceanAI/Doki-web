@@ -64,7 +64,7 @@ export function Footer() {
     <footer className="bg-[var(--ink)] text-[var(--paper)]">
       <div className="max-w-[var(--max-width)] mx-auto px-[var(--gutter)] py-16">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
-          {/* Brand column */}
+          {}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
               <div className="w-8 h-8 rounded-md bg-[var(--clay)] flex items-center justify-center">
@@ -86,7 +86,7 @@ export function Footer() {
             </a>
           </div>
 
-          {/* Link columns */}
+          {}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
               <h4 className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--mist)] mb-4">
@@ -110,7 +110,7 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
+        {}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-[rgba(255,255,255,0.08)]">
           <div className="flex items-center gap-4">
             <p className="text-[12px] text-[var(--mist)] font-mono">

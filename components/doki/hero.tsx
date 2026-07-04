@@ -25,7 +25,7 @@ export function Hero() {
       className="relative min-h-[100dvh] flex items-center overflow-hidden"
       aria-label="Hero"
     >
-      {/* Subtle grid background */}
+      {}
       <div
         className="absolute inset-0 grid-bg pointer-events-none"
         aria-hidden="true"
@@ -33,9 +33,9 @@ export function Hero() {
 
       <div className="relative z-10 max-w-[var(--max-width)] mx-auto px-[var(--gutter)] w-full py-[var(--section-y)]">
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
-          {/* Left: Content */}
+          {}
           <div className="space-y-8">
-            {/* Eyebrow */}
+            {}
             <div
               className={`transition-all duration-700 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -46,7 +46,7 @@ export function Hero() {
               </span>
             </div>
 
-            {/* Headline */}
+            {}
             <h1
               className={`font-sans font-semibold text-[clamp(40px,6.5vw,72px)] leading-[1.05] tracking-[-0.02em] text-foreground transition-all duration-700 delay-100 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -57,7 +57,7 @@ export function Hero() {
               <span className="text-[var(--clay)]">{t('headline2')}</span>
             </h1>
 
-            {/* Tagline */}
+            {}
             <p
               className={`max-w-[520px] text-[clamp(17px,1.6vw,19px)] text-[var(--text-70)] leading-relaxed font-serif transition-all duration-700 delay-150 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -66,7 +66,7 @@ export function Hero() {
               {t('tagline')}
             </p>
 
-            {/* CTAs */}
+            {}
             <div
               className={`flex flex-wrap items-center gap-3 transition-all duration-700 delay-200 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -91,7 +91,7 @@ export function Hero() {
               </Link>
             </div>
 
-            {/* Stats row */}
+            {}
             <div
               className={`flex flex-wrap items-center gap-x-8 gap-y-4 pt-8 border-t border-[var(--border-subtle)] transition-all duration-700 delay-300 ${
                 mounted ? "opacity-100" : "opacity-0"
@@ -115,7 +115,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Responsive Globe (only one rendered) */}
+          {}
           <div
             className={`flex items-center justify-center transition-all duration-700 delay-200 ${
               mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"

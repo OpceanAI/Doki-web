@@ -44,7 +44,7 @@ function CounterStat({
   )
 }
 
-// Check icon — warm gold
+
 function CheckIcon() {
   return (
     <svg className="w-4 h-4 text-[var(--gold-rich)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -70,7 +70,7 @@ export function Benchmarks() {
     <section id="performance" ref={ref} className="relative py-[var(--section-padding)] bg-linen-pattern">
       <div className="section-divider absolute top-0 left-0 right-0" />
 
-      {/* Warm glow */}
+      {}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
@@ -107,7 +107,7 @@ export function Benchmarks() {
           </div>
         </ScrollReveal>
 
-        {/* Stats row */}
+        {}
         <ScrollReveal delay={100}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px mb-12 rounded-xl overflow-hidden border border-[var(--border-gold)]">
             {[
@@ -133,7 +133,7 @@ export function Benchmarks() {
           </div>
         </ScrollReveal>
 
-        {/* Comparison table */}
+        {}
         <ScrollReveal delay={200}>
           <div className="rounded-xl border border-[var(--border-gold)] overflow-hidden shadow-[var(--shadow-md)]">
             <div className="overflow-x-auto">

@@ -87,7 +87,7 @@ export default function InstallPage() {
 
   return (
     <main className="min-h-screen bg-[var(--bg-000)]">
-      {/* Header */}
+      {}
       <div className="max-w-[var(--max-width)] mx-auto px-4 sm:px-6 pt-32 pb-16">
         <div className="text-center">
           <Link href="/" className="inline-flex items-center gap-2 text-[var(--text-500)] hover:text-[var(--text-300)] transition-colors text-sm mb-8">
@@ -107,7 +107,7 @@ export default function InstallPage() {
       </div>
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 pb-32">
-        {/* Platform tabs */}
+        {}
         <div className="flex items-center justify-center gap-2 mb-10 overflow-x-auto">
           {platforms.map((p) => (
             <button
@@ -127,7 +127,7 @@ export default function InstallPage() {
           ))}
         </div>
 
-        {/* Prerequisites */}
+        {}
         <div className="mb-8 p-4 bg-[var(--bg-100)] border border-[var(--border-100)] rounded-xl">
           <h3 className="text-sm font-medium text-[var(--text-200)] mb-3">Prerequisites</h3>
           <ul className="space-y-1.5">
@@ -142,7 +142,7 @@ export default function InstallPage() {
           </ul>
         </div>
 
-        {/* Install steps */}
+        {}
         <div className="space-y-6">
           {currentInstall.steps.map((step, i) => (
             <div key={i}>
@@ -176,7 +176,7 @@ export default function InstallPage() {
           ))}
         </div>
 
-        {/* Post-install */}
+        {}
         <div className="mt-12 p-6 bg-[var(--bg-100)] border border-[var(--border-100)] rounded-xl">
           <h3 className="text-sm font-medium text-[var(--text-200)] mb-4">What&apos;s next?</h3>
           <div className="grid sm:grid-cols-2 gap-3">

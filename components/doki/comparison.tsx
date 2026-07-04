@@ -72,7 +72,7 @@ export function Comparison() {
             role="img"
             aria-label="Slider comparing Docker and Doki metrics"
           >
-            {/* Docker side — left */}
+            {}
             <div
               className="absolute inset-0 flex flex-col"
               style={{ background: "var(--parchment-200)" }}
@@ -91,7 +91,7 @@ export function Comparison() {
               </div>
             </div>
 
-            {/* Doki side — right, clipped */}
+            {}
             <div
               className="absolute inset-0 flex flex-col"
               style={{
@@ -113,7 +113,7 @@ export function Comparison() {
               </div>
             </div>
 
-            {/* Slider line + handle */}
+            {}
             <div
               className="absolute top-0 bottom-0 z-10 pointer-events-none"
               style={{
@@ -124,7 +124,7 @@ export function Comparison() {
                 boxShadow:  "0 0 16px rgba(212, 175, 55, 0.4)",
               }}
             >
-              {/* Handle knob */}
+              {}
               <div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center"
                 style={{

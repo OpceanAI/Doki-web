@@ -132,7 +132,7 @@ export function Navigation() {
             </span>
           </Link>
 
-          {/* Desktop links */}
+          {}
           <div className="hidden md:flex items-center gap-5" ref={dropdownRef}>
             {navItems.map((item) => {
               if ("dropdown" in item) {
@@ -179,7 +179,7 @@ export function Navigation() {
             })}
           </div>
 
-          {/* Desktop CTA */}
+          {}
           <div className="hidden md:flex items-center gap-2">
             <ThemeToggle />
             <Link href="/install" className="btn-primary !py-2 !px-4 !text-[13px]">
@@ -187,7 +187,7 @@ export function Navigation() {
             </Link>
           </div>
 
-          {/* Mobile hamburger */}
+          {}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 -mr-2"
@@ -203,12 +203,12 @@ export function Navigation() {
         </nav>
       </header>
 
-      {/* Mobile backdrop */}
+      {}
       {mobileOpen && (
         <div className="fixed inset-0 z-40 bg-foreground/10 backdrop-blur-sm md:hidden" onClick={closeSheet} aria-hidden="true" />
       )}
 
-      {/* Mobile bottom sheet */}
+      {}
       <div
         ref={sheetRef}
         className={`fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-[var(--border-subtle)] rounded-t-[20px] transform transition-transform duration-300 md:hidden ${

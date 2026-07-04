@@ -102,7 +102,7 @@ export function Terminal() {
       style={{ paddingTop: "var(--section-y)", paddingBottom: "var(--section-y)" }}
     >
       <div className="max-w-[var(--max-width)] mx-auto px-[var(--gutter)]">
-        {/* Header */}
+        {}
         <div
           className={`mb-12 max-w-[var(--measure)] transition-all duration-500 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -119,14 +119,14 @@ export function Terminal() {
           </p>
         </div>
 
-        {/* Terminal window */}
+        {}
         <div
           className={`max-w-2xl transition-all duration-500 delay-100 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <div className="rounded-lg overflow-hidden border border-[rgba(255,255,255,0.08)] bg-[var(--ink)]">
-            {/* Title bar */}
+            {}
             <div className="flex items-center gap-2 px-4 py-3 border-b border-[rgba(255,255,255,0.08)]">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
@@ -141,9 +141,9 @@ export function Terminal() {
               <div className="w-14" />
             </div>
 
-            {/* Body */}
+            {}
             <div className="p-5 font-mono text-[13px] leading-relaxed min-h-[280px]">
-              {/* Current command */}
+              {}
               <div className="mb-3">
                 <div className="text-[var(--clay)]">
                   {cmd.prompt}
@@ -157,7 +157,7 @@ export function Terminal() {
             </div>
           </div>
 
-          {/* Command dots */}
+          {}
           <div className="flex items-center justify-center gap-2 mt-6">
             {commands.map((_, i) => (
               <button

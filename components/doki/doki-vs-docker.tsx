@@ -45,7 +45,7 @@ export function DokiVsDocker() {
       style={{ paddingTop: "var(--section-y)", paddingBottom: "var(--section-y)" }}
     >
       <div className="max-w-[var(--max-width)] mx-auto px-[var(--gutter)]">
-        {/* Header */}
+        {}
         <div
           className={`mb-16 max-w-[var(--measure)] transition-all duration-500 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -62,7 +62,7 @@ export function DokiVsDocker() {
           </p>
         </div>
 
-        {/* Comparison table */}
+        {}
         <div
           className={`transition-all duration-500 delay-100 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"

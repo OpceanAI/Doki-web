@@ -84,7 +84,7 @@ export function TestimonialsGlobe() {
       style={{ paddingTop: "var(--section-y)", paddingBottom: "var(--section-y)" }}
     >
       <div className="max-w-[var(--max-width)] mx-auto px-[var(--gutter)]">
-        {/* Header */}
+        {}
         <div className="mb-12 max-w-[var(--measure)]">
           <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--mist)] mb-4">
             {t('title')}
@@ -94,9 +94,9 @@ export function TestimonialsGlobe() {
           </h2>
         </div>
 
-        {/* Globe + Quote */}
+        {}
         <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 items-center">
-          {/* Globe */}
+          {}
           <div className="flex justify-center">
             <Globe
               size={360}
@@ -110,7 +110,7 @@ export function TestimonialsGlobe() {
             />
           </div>
 
-          {/* Quote panel */}
+          {}
           <div className="min-h-[240px] flex items-center">
             {selected ? (
               <div className="relative p-8 rounded-lg bg-[var(--vellum)] border border-[var(--border-subtle)]">

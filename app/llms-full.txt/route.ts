@@ -34,7 +34,7 @@ export async function GET() {
         lines.push('---')
         lines.push('')
       } catch {
-        // skip
+        
       }
     }
   }

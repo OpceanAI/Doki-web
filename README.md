@@ -1,17 +1,4 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/banner.svg" alt="Doki Web Banner" width="680">
-</p>
-
-<p align="center">
-  <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Next.js-16-000?style=flat&logo=nextdotjs&logoColor=white" alt="Next.js"></a>
-  <a href="https://react.dev"><img src="https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=black" alt="React"></a>
-  <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind-4-06B6D4?style=flat&logo=tailwindcss&logoColor=white" alt="Tailwind"></a>
-  <a href="https://typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript"></a>
-  <a href="https://github.com/OpceanAI/Doki-web/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-555?style=flat" alt="License"></a>
-  <a href="https://vercel.com"><img src="https://img.shields.io/badge/Deployed_on-Vercel-000?style=flat&logo=vercel&logoColor=white" alt="Vercel"></a>
-</p>
-
-<p align="center">
   <a href="#features">Features</a> &middot;
   <a href="#tech-stack">Tech Stack</a> &middot;
   <a href="#quickstart">Quickstart</a> &middot;
@@ -20,24 +7,12 @@
   <a href="#contributing">Contributing</a>
 </p>
 
-<br>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
-</p>
-
 # The Official Website for Doki
 
 <p align="center">
   Landing page and documentation site for <a href="https://github.com/OpceanAI/Doki">Doki</a> -- the universal container engine<br>
   that runs on Android, Linux, and macOS. Built with Next.js 16, React 19, and Tailwind CSS 4.<br>
   <a href="https://dok1.xyz">dok1.xyz</a> · v0.11.0
-</p>
-
-<br>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/divider.svg" alt="Divider" width="600">
 </p>
 
 ## Overview
@@ -53,12 +28,6 @@ Doki Web is the official marketing and documentation website for the Doki contai
 | **Charts** | Recharts |
 | **Deploy** | Vercel |
 | **Language** | TypeScript 5.7 |
-
-<br>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/divider.svg" alt="Divider" width="600">
-</p>
 
 ## Features
 
@@ -89,12 +58,6 @@ Doki Web is the official marketing and documentation website for the Doki contai
 | Fonts | Inter, JetBrains Mono, Syne | Google Fonts |
 | Analytics | [Vercel Analytics](https://vercel.com/analytics) | 1.6 |
 | Language | [TypeScript](https://typescriptlang.org) | 5.7 |
-
-<br>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
-</p>
 
 ## Quickstart
 
@@ -132,12 +95,6 @@ pnpm start
 pnpm lint
 ```
 
-<br>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/divider.svg" alt="Divider" width="600">
-</p>
-
 ## Project Structure
 
 ```
@@ -169,12 +126,6 @@ Doki-web/
 
 **8 page components. 30+ UI components. Zero backend dependencies.**
 
-<br>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/divider.svg" alt="Divider" width="600">
-</p>
-
 ## Development
 
 ### Scripts
@@ -200,17 +151,9 @@ No environment variables are required for local development.
 
 For production deployment on Vercel, analytics are automatically enabled.
 
-<br>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
-</p>
-
 ## Deployment
 
 ### Vercel (Recommended)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/OpceanAI/Doki-web)
 
 ```bash
 npx vercel
@@ -230,12 +173,6 @@ pnpm build
 # Output in .next/
 ```
 
-<br>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/divider.svg" alt="Divider" width="600">
-</p>
-
 ## Contributing
 
 Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
@@ -248,12 +185,6 @@ Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
 | **Content** | Documentation, tutorials, translations |
 | **Performance** | Image optimization, bundle size, loading speed |
 | **Features** | New sections, interactive demos, playground |
-
-<br>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/divider.svg" alt="Divider" width="600">
-</p>
 
 ## License
 
@@ -277,14 +208,3 @@ See [LICENSE](LICENSE) for details.
 | [Doki](https://github.com/OpceanAI/Doki) | The Universal Container Engine |
 | [Doki-proot](https://github.com/OpceanAI/Doki-proot) | Forked proot with JSON IPC daemon mode |
 
-<br>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/Doki-web/main/.github/assets/footer.svg" alt="Footer" width="400">
-</p>
-
-<p align="center">
-  <a href="https://github.com/OpceanAI">
-    <img src="https://img.shields.io/badge/Made_by_OpceanAI-2026-000?style=flat" alt="OpceanAI">
-  </a>
-</p>

@@ -2,56 +2,74 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 import { Navigation } from "@/components/doki/navigation"
 import { Footer } from "@/components/doki/footer"
 
+const featureKeys = ["feat1", "feat2", "feat3", "feat4", "feat5", "feat6"]
+
 export default function MacOsPage() {
+  const t = useTranslations("solutions.macOS")
   const [mounted, setMounted] = useState(false)
   useEffect(() => { setMounted(true) }, [])
 
   return (
     <main>
       <Navigation />
-      <section className="relative min-h-[70dvh] flex items-center pt-24 overflow-hidden">
+
+      {/* Hero */}
+      <section className="relative min-h-[75dvh] flex items-center pt-24 overflow-hidden">
         <div className="absolute inset-0 grid-bg pointer-events-none" />
-        <div className={`relative z-10 max-w-[var(--max-width)] mx-auto px-[var(--gutter)] w-full py-[var(--section-y)] transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+        <div
+          className={`relative z-10 max-w-[var(--max-width)] mx-auto px-[var(--gutter)] w-full py-[var(--section-y)] transition-all duration-700 ${
+            mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}
+        >
           <div className="max-w-[var(--measure)]">
-            <span className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--mist)]">Solution</span>
-            <h1 className="font-sans font-semibold text-[clamp(40px,5vw,64px)] leading-[1.05] tracking-[-0.02em] text-foreground mt-6 mb-6">
-              Containers on
+            <span className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--mist)]">
+              {t("eyebrow")}
+            </span>
+            <h1 className="font-sans font-semibold text-[clamp(40px,5vw,64px)] leading-[1.05] tracking-[-0.02em] text-foreground mt-6 mb-6 text-pretty">
+              {t("headline1")}
               <br />
-              <span className="text-[var(--clay)]">macOS</span>
+              <span className="text-[var(--clay)]">{t("headline2")}</span>
             </h1>
-            <p className="text-[clamp(17px,1.6vw,19px)] text-[var(--text-70)] leading-relaxed font-serif max-w-[520px] mb-8">
-              Native Apple Silicon support with Apple Virtualization.framework. No Docker Desktop, no Orbstack, no VM overhead.
+            <p className="text-[clamp(16px,1.4vw,18px)] text-[var(--text-70)] leading-relaxed font-serif max-w-[520px] mb-8">
+              {t("subtext")}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/install" className="btn btn-primary">Install on macOS</Link>
-              <Link href="/docs/quick-start" className="btn btn-secondary">Quick start</Link>
+              <Link href="/install" className="btn btn-primary">
+                {t("cta")}
+              </Link>
+              <Link href="/docs/quick-start" className="btn btn-secondary">
+                {t("guide")}
+              </Link>
             </div>
           </div>
         </div>
       </section>
-      <section className="section-band-surface" style={{ paddingTop: "var(--section-y)", paddingBottom: "var(--section-y)" }}>
+
+      {/* Features grid */}
+      <section className="section-band-surface">
         <div className="max-w-[var(--max-width)] mx-auto px-[var(--gutter)]">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              ["Apple VZ backend", "Uses Apple Virtualization.framework on macOS 11+. Native ARM64 performance without emulation overhead."],
-              ["No Docker Desktop", "Doki replaces Docker Desktop entirely. No VM, no HyperKit, no license fees. Just a single binary."],
-              ["QEMU fallback", "Intel Macs fall back to QEMU automatically. Same API, same workflow, same CLI."],
-              ["Podman API v5", "Connect from docker CLI, Podman, or any API client. Full compatibility with existing tooling."],
-              ["Kubernetes included", "doki-kube runs a full K8s cluster on macOS. Perfect for local development before deploying to production."],
-              ["Sandbox isolation", "Optional sandbox backend for lightweight process isolation. Great for development and testing workflows."],
-            ].map(([title, desc]) => (
-              <div key={title} className="surface-card p-6">
-                <h3 className="font-sans font-semibold text-[15px] text-foreground mb-2">{title}</h3>
-                <p className="text-[14px] text-[var(--text-70)] leading-relaxed font-serif">{desc}</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {featureKeys.map((key) => (
+              <div key={key} className="surface-card p-6">
+                <h3 className="font-sans font-semibold text-[15px] text-foreground mb-2">
+                  {t(`${key}Title`)}
+                </h3>
+                <p className="text-[14px] text-[var(--text-70)] leading-relaxed font-serif">
+                  {t(`${key}Desc`)}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
-      <Footer />
+
+      <div className="section-band-dark">
+        <Footer />
+      </div>
     </main>
   )
 }

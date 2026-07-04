@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getLocale } from 'next-intl/server'
 import { getSidebar } from '@/lib/docs'
 import { DocsShell } from './docs-shell'
 
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
-  const sidebar = await getSidebar()
+  const locale = await getLocale()
+  const sidebar = await getSidebar(locale)
   return <DocsShell sidebar={sidebar}>{children}</DocsShell>
 }

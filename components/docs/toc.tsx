@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useTranslations } from "next-intl"
 
 interface Heading {
   id: string
@@ -9,6 +10,7 @@ interface Heading {
 }
 
 export function DocToc({ headings }: { headings: Heading[] }) {
+  const t = useTranslations('docs')
   const [activeId, setActiveId] = useState('')
 
   useEffect(() => {
@@ -34,7 +36,7 @@ export function DocToc({ headings }: { headings: Heading[] }) {
   return (
     <div>
       <h4 className="meta-label mb-3">
-        On this page
+        {t('onThisPage')}
       </h4>
       <nav className="space-y-1">
         {headings.map((h) => (

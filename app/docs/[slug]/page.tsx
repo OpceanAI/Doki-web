@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs'
 import path from 'path'
 import { notFound } from 'next/navigation'
+import { getLocale } from 'next-intl/server'
 import { getSidebar, getPrevNext } from '@/lib/docs'
 import { DocsContentHtml } from '@/components/docs/docs-content'
 import { renderMarkdown, transformLinks, renderCodeBlocks, renderInlineCode, renderTables, renderBlockquotes } from '@/lib/render-docs'
@@ -54,7 +55,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params
-  const filePath = path.join(process.cwd(), 'content/docs', `${slug}.md`)
+  const locale = await getLocale()
+  const dir = locale !== 'en' ? path.join(process.cwd(), 'content/docs', locale) : path.join(process.cwd(), 'content/docs')
+  const filePath = path.join(dir, `${slug}.md`)
   try {
     const raw = await fs.readFile(filePath, 'utf-8')
     const { frontmatter } = parseFrontmatter(raw)
@@ -63,7 +66,17 @@ export async function generateMetadata({ params }: Props) {
       description: frontmatter.description || `Doki documentation: ${frontmatter.title}`,
     }
   } catch {
-    return {}
+    const fallbackPath = path.join(process.cwd(), 'content/docs', `${slug}.md`)
+    try {
+      const raw = await fs.readFile(fallbackPath, 'utf-8')
+      const { frontmatter } = parseFrontmatter(raw)
+      return {
+        title: frontmatter.title,
+        description: frontmatter.description || `Doki documentation: ${frontmatter.title}`,
+      }
+    } catch {
+      return {}
+    }
   }
 }
 
@@ -88,12 +101,20 @@ function extractMarkdownHeadings(raw: string): { id: string; text: string; level
 
 export default async function DocPage({ params }: Props) {
   const { slug } = await params
-  const filePath = path.join(process.cwd(), 'content/docs', `${slug}.md`)
+  const locale = await getLocale()
+  const dir = locale !== 'en' ? path.join(process.cwd(), 'content/docs', locale) : path.join(process.cwd(), 'content/docs')
+  const filePath = path.join(dir, `${slug}.md`)
+
   let raw: string
   try {
     raw = await fs.readFile(filePath, 'utf-8')
   } catch {
-    notFound()
+    const fallbackPath = path.join(process.cwd(), 'content/docs', `${slug}.md`)
+    try {
+      raw = await fs.readFile(fallbackPath, 'utf-8')
+    } catch {
+      notFound()
+    }
   }
 
   const { frontmatter } = parseFrontmatter(raw)
@@ -106,7 +127,7 @@ export default async function DocPage({ params }: Props) {
   html = renderTables(html)
   html = renderBlockquotes(html)
 
-  const sidebar = await getSidebar()
+  const sidebar = await getSidebar(locale)
   const prevNext = getPrevNext(slug, sidebar)
   const headings = extractMarkdownHeadings(raw)
 

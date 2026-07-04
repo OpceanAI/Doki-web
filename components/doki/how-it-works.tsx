@@ -1,10 +1,12 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useTranslations } from "next-intl"
 import { CodeBlock } from "./code-block"
 
 const steps = [
   {
+    key: "pull",
     title: "Pull",
     description: "Download OCI images from any registry. Auto-detects your architecture and pulls the correct layers.",
     code: `doki pull alpine
@@ -12,6 +14,7 @@ Pulling ARM64 layers...
 Downloaded 4.0 MB in 2.1s`,
   },
   {
+    key: "build",
     title: "Build",
     description: "Build OCI images from Dokifiles. 18 instructions, multi-stage builds, build cache.",
     code: `doki build -t myapp .
@@ -21,6 +24,7 @@ Downloaded 4.0 MB in 2.1s`,
 Built in 3.2s`,
   },
   {
+    key: "run",
     title: "Run",
     description: "Execute containers in proot, Linux namespaces, or microVM mode. Auto-selected at runtime.",
     code: `doki run --distro alpine echo hello
@@ -28,6 +32,7 @@ Hello from Doki
 Started in 10ms`,
   },
   {
+    key: "mesh",
     title: "Mesh",
     description: "Connect containers across devices. DokiLink mesh with mDNS discovery and encrypted P2P channels.",
     code: `doki link add peer.local
@@ -38,6 +43,7 @@ Mesh: 2 nodes, encrypted`,
 ]
 
 export function HowItWorks() {
+  const t = useTranslations('howItWorks')
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
   const [activeStep, setActiveStep] = useState(0)
@@ -64,17 +70,17 @@ export function HowItWorks() {
           }`}
         >
           <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--mist)] mb-4">
-            How it works
+            {t('title')}
           </p>
           <h2 className="font-sans font-semibold text-[clamp(32px,4.5vw,48px)] tracking-[-0.02em] text-foreground mb-4 leading-tight">
-            Pull, build, run.
+            {t('headline1')}
             <br />
             <span className="text-[var(--text-70)] font-normal font-serif italic">
-              That&apos;s all it takes.
+              {t('headline2')}
             </span>
           </h2>
           <p className="text-[17px] text-[var(--text-70)] leading-relaxed font-serif">
-            From pulling images to running containers. No daemon, no config, no overhead.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -106,11 +112,11 @@ export function HowItWorks() {
                       isActive ? "text-foreground" : "text-[var(--text-70)]"
                     }`}
                   >
-                    {step.title}
+                    {t(step.key + 'Title')}
                   </h3>
                 </div>
                 <p className="text-[14px] text-[var(--text-70)] leading-relaxed font-serif mb-4">
-                  {step.description}
+                  {t(step.key + 'Desc')}
                 </p>
                 {isActive && (
                   <CodeBlock

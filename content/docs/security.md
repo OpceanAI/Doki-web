@@ -6,7 +6,7 @@ category: Core
 
 # Security
 
-Doki takes a defense-in-depth approach: seccomp + AppArmor + capabilities + user namespaces + TLS + image verification + rate limiting. The v0.9.2 release didn't add new security features but fixed several regression-level bugs in the underlying stack.
+Doki takes a defense-in-depth approach: seccomp + AppArmor + capabilities + user namespaces + TLS + image verification + rate limiting. Since v0.11.0, mTLS enforcement and constant-time comparison are enabled for production deployments.
 
 ## Threat Model
 
@@ -348,7 +348,7 @@ Log rotation: `log_opts.max-size=10m`, `log_opts.max-file=3` (10 MB × 3 files =
 
 ## Security Advisories
 
-Security issues should be reported to security@doki.opceanai.com (PGP key on the website). We follow a 90-day disclosure timeline.
+Security issues should be reported via GitHub Security Advisories at `github.com/OpceanAI/Doki/security`. We follow a 90-day disclosure timeline.
 
 ## Hardening Checklist
 

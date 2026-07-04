@@ -1,23 +1,35 @@
 import Link from "next/link"
+import { HuggingFace } from '@lobehub/icons'
+import { LanguageSwitcher } from "./language-switcher"
 
 const footerLinks = {
-  Product: [
-    { label: "Features",    href: "#features" },
-    { label: "Performance", href: "#performance" },
-    { label: "Install",     href: "#install" },
-    { label: "Releases",    href: "https://github.com/OpceanAI/Doki/releases" },
+  Products: [
+    { label: "Doki CLI", href: "/product/doki-cli" },
+    { label: "Doki Compose", href: "/product/doki-compose" },
+    { label: "Doki Kube", href: "/product/doki-kube" },
+    { label: "Dokid", href: "/product/dokid" },
+    { label: "Releases", href: "https://github.com/OpceanAI/Doki/releases" },
+  ],
+  Solutions: [
+    { label: "Android", href: "/solutions/android" },
+    { label: "Linux", href: "/solutions/linux" },
+    { label: "macOS", href: "/solutions/macos" },
+    { label: "CI/CD", href: "/solutions/ci-cd" },
+    { label: "Edge Computing", href: "/solutions/ci-cd" },
   ],
   Resources: [
     { label: "Documentation", href: "/docs/home" },
-    { label: "Doki-proot",    href: "https://github.com/OpceanAI/Doki-proot" },
-    { label: "r/termux",      href: "https://reddit.com/r/termux" },
-    { label: "Changelog",     href: "https://github.com/OpceanAI/Doki/releases" },
+    { label: "Changelog", href: "/changelog" },
+    { label: "Security", href: "/security" },
+    { label: "Performance", href: "/performance" },
+    { label: "Doki-proot", href: "https://github.com/OpceanAI/Doki-proot" },
   ],
   Company: [
-    { label: "About",        href: "https://github.com/OpceanAI" },
-    { label: "GitHub",       href: "https://github.com/OpceanAI/Doki" },
+    { label: "GitHub", href: "https://github.com/OpceanAI/Doki" },
+    { label: "About", href: "https://github.com/OpceanAI" },
     { label: "Hugging Face", href: "https://huggingface.co/OpceanAI" },
-    { label: "Contact",      href: "mailto:contact@opceanai.com" },
+    { label: "Contact", href: "mailto:contact@opceanai.com" },
+    { label: "r/termux", href: "https://reddit.com/r/termux" },
   ],
 }
 
@@ -43,14 +55,7 @@ const socialLinks = [
   {
     name: "Hugging Face",
     href: "https://huggingface.co/OpceanAI",
-    icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="3" width="20" height="18" rx="3" stroke="currentColor" strokeWidth="1.5"/>
-        <circle cx="9" cy="10" r="1.5" fill="currentColor"/>
-        <circle cx="15" cy="10" r="1.5" fill="currentColor"/>
-        <path d="M8 15c.5.5 1.5 1.5 4 1.5s3.5-1 4-1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <HuggingFace size={20} />,
   },
 ]
 
@@ -58,20 +63,27 @@ export function Footer() {
   return (
     <footer className="bg-[var(--ink)] text-[var(--paper)]">
       <div className="max-w-[var(--max-width)] mx-auto px-[var(--gutter)] py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
               <div className="w-8 h-8 rounded-md bg-[var(--clay)] flex items-center justify-center">
                 <span className="font-sans font-bold text-foreground text-[14px]">D</span>
               </div>
-              <span className="font-sans font-semibold text-[15px] tracking-[-0.01em]">
-                Doki
-              </span>
+              <span className="font-sans font-semibold text-[15px] tracking-[-0.01em]">Doki</span>
             </div>
             <p className="text-[13px] text-[rgba(250,249,245,0.6)] leading-relaxed font-serif">
               The universal container engine. Runs on Android, Linux, and macOS.
             </p>
+            <a
+              href="https://huggingface.co/OpceanAI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-4 text-[rgba(250,249,245,0.5)] hover:text-[var(--paper)] transition-colors"
+              aria-label="Powered by Hugging Face"
+            >
+              <HuggingFace size={56} />
+            </a>
           </div>
 
           {/* Link columns */}
@@ -100,9 +112,12 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-[rgba(255,255,255,0.08)]">
-          <p className="text-[12px] text-[var(--mist)] font-mono">
-            &copy; 2026 OpceanAI. Apache 2.0 License.
-          </p>
+          <div className="flex items-center gap-4">
+            <p className="text-[12px] text-[var(--mist)] font-mono">
+              &copy; 2026 OpceanAI. Apache 2.0 License.
+            </p>
+            <LanguageSwitcher />
+          </div>
 
           <div className="flex items-center gap-3">
             {socialLinks.map((social) => (

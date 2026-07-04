@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from 'next'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages, getLocale } from 'next-intl/server'
 
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
@@ -30,11 +32,8 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dok1.xyz'),
   title: 'Doki — Container Engine for Android',
-  description: 'Run Docker containers natively on your phone. No root. No bloat. One binary. Every platform.',
-  generator: 'v0.app',
-  keywords: ['docker', 'containers', 'android', 'termux', 'rootless', 'oci', 'podman', 'kubernetes', 'mesh', 'proot', 'linux'],
+  description: 'Run Docker containers natively on your phone. No root. No bloat.',
   authors: [{ name: 'OpceanAI' }],
   openGraph: {
     title: 'Doki — Container Engine for Android',
@@ -51,6 +50,17 @@ export const metadata: Metadata = {
     icon: '/icon.svg',
     apple: '/icon.svg',
   },
+  alternates: {
+    languages: {
+      en: '/',
+      es: '/',
+      ja: '/',
+      de: '/',
+      fr: '/',
+      ko: '/',
+      it: '/',
+    },
+  },
 }
 
 export const viewport: Viewport = {
@@ -64,14 +74,17 @@ export const viewport: Viewport = {
   maximumScale: 5,
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const messages = await getMessages()
+  const locale = await getLocale()
+
   return (
     <html
-      lang="en"
+      lang={locale}
       suppressHydrationWarning
       className={`${poppins.variable} ${lora.variable} ${jetbrainsMono.variable} bg-background`}
     >
@@ -82,11 +95,13 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <a href="#main-content" className="skip-link">Skip to content</a>
-          <ScrollProgress />
-          <main id="main-content">{children}</main>
-          <BackToTop />
-          <Toaster />
+          <NextIntlClientProvider messages={messages}>
+            <a href="#main-content" className="skip-link">Skip to content</a>
+            <ScrollProgress />
+            <main id="main-content">{children}</main>
+            <BackToTop />
+            <Toaster />
+          </NextIntlClientProvider>
           {process.env.NODE_ENV === 'production' && <Analytics />}
         </ThemeProvider>
       </body>

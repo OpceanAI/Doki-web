@@ -1,0 +1,35 @@
+{
+  "nav": {
+    "products": "製品",
+    "features": "機能",
+    "performance": "パフォーマンス",
+    "community": "コミュニティ",
+    "changelog": "変更履歴",
+    "install": "インストール",
+    "docs": "ドキュメント",
+    "getStarted": "始める",
+    "product": {
+      "dokiCli": "Doki CLI",
+      "dokiCliDesc": "あらゆるデバイスに対応するコンテナエンジン",
+      "dokiCompose": "Doki Compose",
+      "dokiComposeDesc": "マルチコンテナオーケストレーション",
+      "dokiKube": "Doki Kube",
+      "dokiKubeDesc": "単一バイナリのKubernetes",
+      "dokid": "Dokid",
+      "dokidDesc": "永続コンテナデーモン"
+    }
+  },
+  "hero": {
+    "headline1": "コンテナエンジン",
+    "headline2": "Android向け",
+    "tagline": "スマートフォンでDockerコンテナを実行。単一バイナリ、ゼロ依存、root不要。",
+    "getStarted": "始める"
+  },
+  "footer": {
+    "products": "製品",
+    "solutions": "ソリューション",
+    "resources": "リソース",
+    "company": "会社情報",
+    "language": "言語"
+  }
+}

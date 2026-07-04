@@ -18,17 +18,17 @@ This tutorial takes ~5 minutes and walks you through: install â†’ start daemon â
 ```bash
 $ doki version
 Client: Doki
- Version:    0.9.2
- API version: 1.48
- GitCommit:  907ae45
- Built:      2026-06-04
+ Version:    0.11.1
+ API version: 1.54
+ GitCommit:  1a2b3c4
+ Built:      2026-06-25
 ```
 
 If you see the version banner, you're good. If `dokid` is also installed, the same command shows daemon info too.
 
 ## 2. Start the Daemon
 
-The `dokid` daemon listens on a Unix socket and exposes the Docker Engine API v1.48.
+The `dokid` daemon listens on a Unix socket and exposes the Docker Engine API v1.54 + Podman API v5.
 
 ### Foreground (foreground, see logs)
 

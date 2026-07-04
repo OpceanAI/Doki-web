@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "products": "제품",
+    "features": "기능",
+    "performance": "성능",
+    "community": "커뮤니티",
+    "changelog": "변경사항",
+    "install": "설치",
+    "docs": "문서",
+    "getStarted": "시작하기"
+  },
+  "hero": {
+    "headline1": "컨테이너 엔진",
+    "headline2": "Android용",
+    "tagline": "휴대폰에서 Docker 컨테이너를 실행하세요. 단일 바이너리, 제로 의존성, root 불필요.",
+    "getStarted": "시작하기"
+  },
+  "footer": {
+    "products": "제품",
+    "solutions": "솔루션",
+    "resources": "리소스",
+    "company": "회사",
+    "language": "언어"
+  }
+}

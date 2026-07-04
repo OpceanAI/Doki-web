@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import { Globe, type GlobeNode } from "./globe"
 
 interface Testimonial {
@@ -65,6 +66,7 @@ const nodes: GlobeNode[] = testimonials.map((t) => ({
 }))
 
 export function TestimonialsGlobe() {
+  const t = useTranslations('testimonials')
   const [selected, setSelected] = useState<Testimonial | null>(null)
 
   const handleSelect = (node: GlobeNode | null) => {
@@ -85,10 +87,10 @@ export function TestimonialsGlobe() {
         {/* Header */}
         <div className="mb-12 max-w-[var(--measure)]">
           <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--mist)] mb-4">
-            Community
+            {t('title')}
           </p>
           <h2 className="font-sans font-semibold text-[clamp(32px,4.5vw,48px)] tracking-[-0.02em] text-foreground mb-4 leading-tight">
-            What developers are saying.
+            {t('headline')}
           </h2>
         </div>
 
@@ -139,13 +141,13 @@ export function TestimonialsGlobe() {
                     rel="noopener noreferrer"
                     className="text-[12px] text-[var(--blue)] hover:underline font-mono"
                   >
-                    View →
+                    {t('view')}
                   </a>
                 </div>
               </div>
             ) : (
               <p className="text-[15px] text-[var(--mist)] font-serif italic">
-                Click on a node to read what developers are saying about Doki.
+                {t('clickPrompt')}
               </p>
             )}
           </div>

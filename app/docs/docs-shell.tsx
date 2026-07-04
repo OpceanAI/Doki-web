@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useTranslations } from "next-intl"
 import { Menu, X, Search, ChevronRight } from 'lucide-react'
 import { type SidebarCategory } from '@/lib/docs'
 import { DocSearch } from '@/components/docs/search-dialog'
@@ -15,6 +16,7 @@ export function DocsShell({
   sidebar: SidebarCategory[]
   children: React.ReactNode
 }) {
+  const t = useTranslations('docs')
   const pathname = usePathname()
   const slug = pathname.replace('/docs/', '')
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -53,7 +55,7 @@ export function DocsShell({
               <div className="flex h-7 w-7 items-center justify-center rounded bg-[var(--clay)] text-xs font-bold text-[var(--paper)]">
                 D
               </div>
-              <span className="text-sm font-medium text-foreground">Docs</span>
+              <span className="text-sm font-medium text-foreground">{t('docs')}</span>
             </Link>
           </div>
           <div className="flex items-center gap-3">
@@ -62,14 +64,14 @@ export function DocsShell({
               className="flex items-center gap-2 rounded-md hairline-all px-3 py-1.5 text-xs text-[var(--text-secondary)] hover:border-[var(--text-secondary)] transition-colors duration-150"
             >
               <Search className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">Search docs...</span>
+              <span className="hidden sm:inline">{t('searchDocs')}</span>
               <span className="hidden sm:inline text-[10px] hairline-all rounded px-1 py-0.5" style={{ background: 'color-mix(in srgb, var(--surface) 50%, transparent)' }}>⌘K</span>
             </button>
             <Link
               href="/"
               className="text-xs text-[var(--text-secondary)] hover:text-foreground transition-colors duration-150"
             >
-              Home
+              {t('home')}
             </Link>
             <ThemeToggle />
           </div>

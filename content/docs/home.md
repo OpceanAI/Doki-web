@@ -12,11 +12,10 @@ Welcome to the Doki (Universal Container Engine) documentation wiki. This wiki i
 
 ## Latest Release
 
-**v0.9.2** (June 2026) — DNS Overhaul, 12 Isolation Levels, Critical Bug Fixes
+**v0.11.1** (June 2026) — Cross-Arch Emulation, Termux UX, Runner Refactor
 
-- [Release notes](../RELEASE_NOTES.md)
-- [Download binaries](https://github.com/OpceanAI/Doki/releases/tag/v0.9.2)
-- [What's new in v0.9.2](../README.md#whats-new)
+- [Release notes](https://github.com/OpceanAI/Doki/releases/tag/v0.11.1)
+- [Download binaries](https://github.com/OpceanAI/Doki/releases/latest)
 
 ## Table of Contents
 

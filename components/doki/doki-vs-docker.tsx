@@ -1,18 +1,19 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useTranslations } from "next-intl"
 
 const metrics = [
-  { label: "Binary Size",       doki: "8.56 MB",      docker: "58 MB",          podman: "45 MB",         win: true },
-  { label: "Memory (idle)",     doki: "12 MB",        docker: "85 MB",          podman: "60 MB",         win: true },
-  { label: "Cold Start",        doki: "<15ms",        docker: "~50ms",          podman: "~30ms",         win: true },
-  { label: "Root Required",     doki: "No",           docker: "Yes",            podman: "No",            win: true },
-  { label: "Android Native",    doki: "Yes",          docker: "No",             podman: "No",            win: true },
-  { label: "OCI Registry",      doki: "Yes",          docker: "Yes",            podman: "Yes",           win: false },
-  { label: "Compose",           doki: "Yes",          docker: "Yes",            podman: "Yes",           win: false },
-  { label: "Podman API v5",     doki: "39 endpoints", docker: "N/A",            podman: "184 endpoints", win: false },
-  { label: "Kubernetes 1.32",   doki: "6 components", docker: "No",             podman: "No",            win: true },
-  { label: "Landlock Sandbox",  doki: "ABI v9",       docker: "No",             podman: "No",            win: true },
+  { key: "binarySize",    label: "Binary Size",       doki: "8.56 MB",      docker: "58 MB",          podman: "45 MB",         win: true },
+  { key: "memoryIdle",    label: "Memory (idle)",     doki: "12 MB",        docker: "85 MB",          podman: "60 MB",         win: true },
+  { key: "coldStart",     label: "Cold Start",        doki: "<15ms",        docker: "~50ms",          podman: "~30ms",         win: true },
+  { key: "rootRequired",  label: "Root Required",     doki: "No",           docker: "Yes",            podman: "No",            win: true },
+  { key: "androidNative", label: "Android Native",    doki: "Yes",          docker: "No",             podman: "No",            win: true },
+  { key: "ociRegistry",   label: "OCI Registry",      doki: "Yes",          docker: "Yes",            podman: "Yes",           win: false },
+  { key: "compose",       label: "Compose",           doki: "Yes",          docker: "Yes",            podman: "Yes",           win: false },
+  { key: "podmanApi",     label: "Podman API v5",     doki: "39 endpoints", docker: "N/A",            podman: "184 endpoints", win: false },
+  { key: "kubernetes",    label: "Kubernetes 1.32",   doki: "6 components", docker: "No",             podman: "No",            win: true },
+  { key: "landlock",      label: "Landlock Sandbox",  doki: "ABI v9",       docker: "No",             podman: "No",            win: true },
 ]
 
 function CheckIcon() {
@@ -24,6 +25,7 @@ function CheckIcon() {
 }
 
 export function DokiVsDocker() {
+  const t = useTranslations('dokiVsDocker')
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
 
@@ -50,13 +52,13 @@ export function DokiVsDocker() {
           }`}
         >
           <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--mist)] mb-4">
-            Performance
+            {t('title')}
           </p>
           <h2 className="font-sans font-semibold text-[clamp(32px,4.5vw,48px)] tracking-[-0.02em] text-foreground mb-4 leading-tight">
-            Docker vs Doki.
+            {t('headline')}
           </h2>
           <p className="text-[17px] text-[var(--text-70)] leading-relaxed font-serif">
-            Built for mobile. Tested on real hardware. No daemon eating your battery.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -72,19 +74,19 @@ export function DokiVsDocker() {
                 <thead>
                   <tr className="border-b border-[var(--border)] bg-[var(--vellum)]">
                     <th className="px-6 py-4 text-left font-sans font-semibold text-foreground text-[13px]">
-                      Metric
+                      {t('metricHeader')}
                     </th>
                     <th className="px-6 py-4 text-left text-[13px]">
                       <span className="inline-flex items-center gap-2 font-sans font-semibold text-[var(--clay)]">
                         <span className="w-2 h-2 rounded-full bg-[var(--clay)]" />
-                        Doki
+                        {t('dokiHeader')}
                       </span>
                     </th>
                     <th className="px-6 py-4 text-left font-sans font-medium text-[var(--text-70)] text-[13px]">
-                      Docker
+                      {t('dockerHeader')}
                     </th>
                     <th className="px-6 py-4 text-left font-sans font-medium text-[var(--text-70)] text-[13px]">
-                      Podman
+                      {t('podmanHeader')}
                     </th>
                   </tr>
                 </thead>
@@ -97,7 +99,7 @@ export function DokiVsDocker() {
                       }`}
                     >
                       <td className="px-6 py-4 text-[var(--text-70)] font-serif text-[13px]">
-                        {row.label}
+                        {t(row.key + 'Label')}
                       </td>
                       <td className="px-6 py-4">
                         <span
@@ -123,7 +125,7 @@ export function DokiVsDocker() {
           </div>
 
           <p className="mt-4 text-[11px] text-[var(--mist)] font-serif italic">
-            Benchmarks on Snapdragon 685 / 4GB RAM / Termux. Docker/Podman values from x86_64 Linux.
+            {t('footnote')}
           </p>
         </div>
       </div>

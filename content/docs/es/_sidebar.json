@@ -1,0 +1,28 @@
+[
+  {
+    "category": "Primeros Pasos",
+    "pages": [
+      { "slug": "home", "title": "Visión General" },
+      { "slug": "installation", "title": "Instalación" },
+      { "slug": "quick-start", "title": "Inicio Rápido" }
+    ]
+  },
+  {
+    "category": "Núcleo",
+    "pages": [
+      { "slug": "architecture", "title": "Arquitectura" },
+      { "slug": "isolation-levels", "title": "Niveles de Aislamiento" },
+      { "slug": "security", "title": "Seguridad" }
+    ]
+  },
+  {
+    "category": "Referencia",
+    "pages": [
+      { "slug": "cli-reference", "title": "Referencia CLI" },
+      { "slug": "configuration", "title": "Configuración" },
+      { "slug": "networking", "title": "Redes" },
+      { "slug": "storage", "title": "Almacenamiento" },
+      { "slug": "changelog", "title": "Registro de Cambios" }
+    ]
+  }
+]

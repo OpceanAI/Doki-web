@@ -154,7 +154,7 @@ Implements bridge networking, CNI plugins, port mapping, and internal DNS.
 - Default Linux bridge with `10.0.0.0/24` subnet (configurable)
 - iptables rules for NAT (MASQUERADE on outbound) and DNAT (port forwarding)
 - veth pairs: host-side `veth*`, container-side `eth0`
-- v0.9.2: `Endpoint.VethHost`/`VethPeer` fields track names for proper teardown
+- v0.11.0: `Endpoint.VethHost`/`VethPeer` fields track names for proper teardown
 
 #### DNS
 
@@ -241,7 +241,7 @@ Wraps crosvm (Chromium OS Virtual Machine Monitor) and Firecracker. Provides:
 
 Linux-specific subsystems. `fuse` does overlayfs mounts (user-space alternative to kernel overlay). `namespaces` creates user/pid/net/mount/uts/ipc namespaces via `unshare`/`clone`. `cgroups` is v2 resource management. `seccomp` builds BPF filter programs. `apparmor` generates profile text.
 
-On darwin, `internal/fuse/overlayfs_darwin.go` and `internal/namespaces/stub_darwin.go` are no-op stubs (added in v0.9.2).
+On darwin, `internal/fuse/overlayfs_darwin.go` and `internal/namespaces/stub_darwin.go` are no-op stubs (added in v0.10.0).
 
 ### 10. `pkg/common` — Shared Code
 
@@ -289,13 +289,13 @@ Three principles drove the design:
 
 3. **Resource constraints first** — Termux, Android, Raspberry Pi are the primary targets. Memory is precious, so the daemon idles at 12 MB and the CLI at 6.7 MB. This is why we use `log/slog` instead of zap/zerolog (slog is stdlib, no dependency), why we bundle proot detection, and why `fuse-overlayfs` is the default storage driver.
 
-## Source Code Stats (v0.9.2)
+## Source Code Stats (v0.11.1)
 
-- 40 Go source files (only counting `*.go` outside tests and generated files)
-- 14,500+ lines of Go code
-- 4 compiled binaries (`doki`, `dokid`, `doki-compose`, `doki-init`)
-- 13 release binaries (4 binaries × 3 OS/arch + 1 darwin)
-- 0 runtime CGo dependencies
+- 158+ Go source files (only counting `*.go` outside tests and generated files)
+- 55,000+ lines of Go code
+- 6 compiled binaries (`doki`, `dokid`, `doki-compose`, `doki-init`, `doki-kube`, `doki-kubectl`)
+- 30+ release binaries (6 binaries × 5 platforms)
+- 0 runtime CGo dependencies (except macOS VZ backend)
 
 ## Next Steps
 

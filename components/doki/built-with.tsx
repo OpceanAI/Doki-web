@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useTranslations } from "next-intl"
 
 const stats = [
   { lang: "Go", lines: "38,000", pct: 69, color: "#00ADD8" },
@@ -15,6 +16,7 @@ const dockItems = [
 ]
 
 export function BuiltWith() {
+  const t = useTranslations('builtWith')
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
 
@@ -40,13 +42,13 @@ export function BuiltWith() {
           }`}
         >
           <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--mist)] mb-4">
-            Built with
+            {t('title')}
           </p>
           <h2 className="font-sans font-semibold text-[clamp(32px,4.5vw,48px)] tracking-[-0.02em] text-foreground mb-4 leading-tight">
-            Go, C, and a little ObjC.
+            {t('headline')}
           </h2>
           <p className="text-[17px] text-[var(--text-70)] leading-relaxed font-serif">
-            55,000 lines of code. One binary. Every platform.
+            {t('subtitle')}
           </p>
         </div>
 

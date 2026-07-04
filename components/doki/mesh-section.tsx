@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useTranslations } from "next-intl"
 import { CodeBlock } from "./code-block"
 
 type Tab = "mesh" | "k8s" | "macos"
@@ -85,6 +86,7 @@ Starting Kubernetes cluster...
 }
 
 export function MeshSection() {
+  const t = useTranslations('mesh')
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
   const [activeTab, setActiveTab] = useState<Tab>("mesh")
@@ -113,17 +115,17 @@ export function MeshSection() {
           }`}
         >
           <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--mist)] mb-4">
-            v0.11.0
+            {t('version')}
           </p>
           <h2 className="font-sans font-semibold text-[clamp(32px,4.5vw,48px)] tracking-[-0.02em] text-foreground mb-4 leading-tight">
-            Mesh. Kubernetes.
+            {t('headline1')}
             <br />
             <span className="text-[var(--text-70)] font-normal font-serif italic">
-              macOS native.
+              {t('headline2')}
             </span>
           </h2>
           <p className="text-[17px] text-[var(--text-70)] leading-relaxed font-serif">
-            Three major capabilities in v0.11.0 — from distributed containers to full Kubernetes clusters.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -144,7 +146,7 @@ export function MeshSection() {
               }`}
             >
               <span className="flex items-center gap-1.5 sm:gap-2">
-                {tab.label}
+                {t(tab.id + 'Label')}
                 <span
                   className={`text-[10px] px-1.5 py-0.5 rounded font-mono ${
                     activeTab === tab.id
@@ -152,7 +154,7 @@ export function MeshSection() {
                       : "bg-[var(--vellum)] text-[var(--mist)]"
                   }`}
                 >
-                  {tab.badge}
+                  {t(tab.id + 'Badge')}
                 </span>
               </span>
               {activeTab === tab.id && (
@@ -171,10 +173,10 @@ export function MeshSection() {
           {/* Left: info + stats */}
           <div>
             <h3 className="font-sans text-[20px] font-semibold text-foreground mb-4">
-              {content.title}
+              {t(activeTab + 'Title')}
             </h3>
             <p className="text-[15px] text-[var(--text-70)] leading-relaxed font-serif mb-6">
-              {content.description}
+              {t(activeTab + 'Desc')}
             </p>
 
             {/* Stats grid */}
@@ -197,8 +199,8 @@ export function MeshSection() {
             {content.note && (
               <div className="p-3 rounded-lg bg-[var(--vellum)] border border-[var(--border-subtle)]">
                   <p className="text-[12px] text-[var(--text-70)] leading-relaxed font-serif">
-                  <span className="font-medium text-[var(--clay)]">Note: </span>
-                  {content.note}
+                  <span className="font-medium text-[var(--clay)]">{t('noteLabel')} </span>
+                  {t(activeTab + 'Note')}
                 </p>
               </div>
             )}
@@ -208,7 +210,7 @@ export function MeshSection() {
           <CodeBlock
             code={content.code}
             language="bash"
-            title={activeTab === "mesh" ? "doki link" : activeTab === "k8s" ? "doki-kube" : "doki run"}
+            title={activeTab === "mesh" ? t('meshCodeTitle') : activeTab === "k8s" ? t('k8sCodeTitle') : t('macosCodeTitle')}
           />
         </div>
       </div>

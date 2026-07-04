@@ -21,7 +21,8 @@
       { "slug": "cli-reference", "title": "CLI Reference" },
       { "slug": "configuration", "title": "Configuration" },
       { "slug": "networking", "title": "Networking" },
-      { "slug": "storage", "title": "Storage" }
+      { "slug": "storage", "title": "Storage" },
+      { "slug": "changelog", "title": "Changelog" }
     ]
   }
 ]

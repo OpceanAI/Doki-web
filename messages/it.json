@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "products": "Prodotti",
+    "features": "Funzionalità",
+    "performance": "Prestazioni",
+    "community": "Community",
+    "changelog": "Novità",
+    "install": "Installa",
+    "docs": "Documenti",
+    "getStarted": "Inizia"
+  },
+  "hero": {
+    "headline1": "Motore di container",
+    "headline2": "per Android",
+    "tagline": "Esegui container Docker sul tuo telefono. Un binario, zero dipendenze, nessun root.",
+    "getStarted": "Inizia"
+  },
+  "footer": {
+    "products": "Prodotti",
+    "solutions": "Soluzioni",
+    "resources": "Risorse",
+    "company": "Azienda",
+    "language": "Lingua"
+  }
+}

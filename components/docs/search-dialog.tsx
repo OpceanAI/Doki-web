@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
+import { useTranslations } from "next-intl"
 import Fuse from 'fuse.js'
 import {
   CommandDialog,
@@ -20,6 +21,7 @@ export function DocSearch({
   open: boolean
   onOpenChange: (open: boolean) => void
 }) {
+  const t = useTranslations('docs')
   const router = useRouter()
   const [fuse, setFuse] = useState<Fuse<SearchEntry> | null>(null)
   const [results, setResults] = useState<Fuse.FuseResult<SearchEntry>[]>([])
@@ -65,13 +67,13 @@ export function DocSearch({
   return (
     <CommandDialog open={open} onOpenChange={onOpenChange}>
       <CommandInput
-        placeholder="Search documentation..."
+        placeholder={t('searchPlaceholder')}
         value={query}
         onValueChange={search}
       />
       <CommandList>
         <CommandEmpty>
-          {query ? 'No results found.' : 'Type to search...'}
+          {query ? t('noResults') : t('typeToSearch')}
         </CommandEmpty>
         {hasResults &&
           Object.entries(categories).map(([category, items]) => (

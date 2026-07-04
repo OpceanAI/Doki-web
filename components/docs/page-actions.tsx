@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from "next-intl"
 import { Copy, Check, ExternalLink } from 'lucide-react'
 
 function getWikiFilename(slug: string): string {
@@ -9,6 +10,7 @@ function getWikiFilename(slug: string): string {
 }
 
 export function DocPageActions({ slug }: { slug: string }) {
+  const t = useTranslations('docs')
   const [copiedPage, setCopiedPage] = useState(false)
   const [copiedMd, setCopiedMd] = useState(false)
 
@@ -41,7 +43,7 @@ export function DocPageActions({ slug }: { slug: string }) {
         aria-label="Copy page content"
       >
         {copiedPage ? <Check className="h-3.5 w-3.5 text-[var(--green)]" /> : <Copy className="h-3.5 w-3.5" />}
-        <span className="hidden sm:inline">{copiedPage ? 'Copied!' : 'Copy page'}</span>
+        <span className="hidden sm:inline">{copiedPage ? t('copied') : t('copyPage')}</span>
       </button>
       <button
         onClick={handleCopyMarkdown}
@@ -49,7 +51,7 @@ export function DocPageActions({ slug }: { slug: string }) {
         aria-label="Copy as Markdown"
       >
         {copiedMd ? <Check className="h-3.5 w-3.5 text-[var(--green)]" /> : <Copy className="h-3.5 w-3.5" />}
-        <span className="hidden sm:inline">{copiedMd ? 'Copied!' : 'Copy MD'}</span>
+        <span className="hidden sm:inline">{copiedMd ? t('copied') : t('copyMd')}</span>
       </button>
       <a
         href={`https://github.com/OpceanAI/doki-wiki/blob/main/${getWikiFilename(slug)}`}
@@ -59,7 +61,7 @@ export function DocPageActions({ slug }: { slug: string }) {
         aria-label="Edit this page on GitHub"
       >
         <ExternalLink className="h-3.5 w-3.5" />
-        <span className="hidden sm:inline">Edit on GitHub</span>
+        <span className="hidden sm:inline">{t('editOnGitHub')}</span>
       </a>
     </div>
   )

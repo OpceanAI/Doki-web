@@ -11,7 +11,7 @@ Doki ships as 4 binaries (`doki`, `dokid`, `doki-compose`, `doki-init`) for 4 pl
 ## Quick Install (Linux/macOS/Android via Termux)
 
 ```bash
-curl -sL https://doki.opceanai.com | sh
+curl -sL https://dok1.xyz | sh
 ```
 
 This downloads the right binary for your platform to `~/.local/bin/`. Add it to your `$PATH` if it's not already.
@@ -28,7 +28,7 @@ Termux is the primary supported Android environment. Doki runs rootless on Termu
 ```bash
 pkg update && pkg upgrade
 pkg install proot curl
-curl -sL https://doki.opceanai.com | sh
+curl -sL https://dok1.xyz | sh
 ```
 
 ### From GitHub Releases
@@ -48,8 +48,8 @@ chmod +x $PREFIX/bin/doki*
 ```bash
 $ doki version
 Client: Doki
- Version:    0.9.2
- API version: 1.48
+ Version:    0.11.1
+ API version: 1.54
  GitCommit:  907ae45
  Built:      2026-06-04
 
@@ -59,7 +59,7 @@ hello from doki
 
 ### Termux-specific notes
 
-- `LD_PRELOAD` and `LD_LIBRARY_PATH` are stripped from proot's environment automatically (v0.9.2+)
+- `LD_PRELOAD` and `LD_LIBRARY_PATH` are stripped from proot's environment automatically
 - DNS listens on `127.0.0.11:8053` (port 53 is blocked by SELinux without root)
 - The default runtime is proot; override with `doki run --runtime native`
 - Storage driver: `fuse-overlayfs` (no root needed)
@@ -207,9 +207,9 @@ doki-linux-arm64: OK
 | Symptom | Fix |
 |:--------|:----|
 | `command not found: doki` | Add `$PREFIX/bin` (Termux) or `/usr/local/bin` (Linux) to `$PATH` |
-| `execve: Function not implemented` (Termux) | Fixed in v0.9.2+; update to latest release |
+| `execve: Function not implemented` (Termux) | Update to latest release |
 | `port 53: permission denied` (Termux) | This is expected; Doki uses port 8053 by default on Android |
-| `iptables: Unknown option` | Update to v0.9.2+; the DNAT bug was fixed |
+| `iptables: Unknown option` | Update to latest release; the DNAT bug was fixed |
 | `cannot find proot` | `apt install proot` (Debian/Ubuntu) or `pkg install proot` (Termux) |
 
 ## Next Steps

@@ -6,7 +6,7 @@ category: Core
 
 # Isolation Levels
 
-Doki v0.9.2 supports **12 isolation levels** — from a WASM sandbox with no syscalls to hardware-level microVMs. The runner registry in `pkg/runtime/registry.go` probes the host and picks the strongest mode that works. You can also force a specific mode with `doki run --runtime <mode>`.
+Doki v0.11.1 supports **12 isolation levels** — from a WASM sandbox with no syscalls to hardware-level microVMs. The runner registry in `pkg/runtime/registry.go` probes the host and picks the strongest mode that works. You can also force a specific mode with `doki run --runtime <mode>`.
 
 ## Decision Tree
 
@@ -279,7 +279,7 @@ Each level is implemented in `pkg/runtime/runners/<mode>/runner.go` (where appli
 **What it is**: [PRoot](https://proot-me.github.io/) is a userspace `chroot`/`mount` implementation that uses `ptrace` to intercept syscalls. It doesn't require root.
 
 **Requirements**:
-- `proot` in `$PATH` (or Doki's bundled `doki-proot` fallback in v0.9.1; v0.9.2+ uses `FindProotBinary()`)
+- `proot` in `$PATH` (or Doki's bundled `doki-proot` fallback; uses `FindProotBinary()`)
 - Termux / Android / any Linux without root
 
 **Use cases**:
@@ -292,7 +292,7 @@ Each level is implemented in `pkg/runtime/runners/<mode>/runner.go` (where appli
 **Trade-offs**:
 - Slower than native namespaces
 - Doesn't work for some syscalls (raw `mount`, `pivot_root`)
-- Termux-specific: `LD_PRELOAD` must be stripped (v0.9.2+ handles this)
+- Termux-specific: `LD_PRELOAD` must be stripped (handled automatically)
 
 **Code reference**: `pkg/runtime/runtime.go:retryWithQemu()` (the fallback), `internal/proot/manager.go:FindProotBinary()`
 

@@ -90,6 +90,16 @@
   --z-modal: 400;
   --z-toast: 500;
 
+  /* Component-specific variables (referenced by dock, beam, spotlight-card) */
+  --bg-000: var(--paper);
+  --bg-100: var(--surface);
+  --bg-200: var(--vellum);
+  --bg-300: var(--hairline);
+  --text-300: var(--mist);
+  --border-100: var(--border-subtle);
+  --accent-cyan: #6a9bcc;
+  --section-padding: var(--section-y);
+
   /* shadcn compatibility */
   --background: var(--bg);
   --foreground: var(--text);

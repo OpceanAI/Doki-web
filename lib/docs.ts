@@ -26,32 +26,50 @@ export interface DocPage {
 
 const DOCS_DIR = path.join(process.cwd(), 'content/docs')
 
-export async function getSidebar(): Promise<SidebarCategory[]> {
-  const filePath = path.join(DOCS_DIR, '_sidebar.json')
-  const raw = await fs.readFile(filePath, 'utf-8')
+export async function getSidebar(locale = 'en'): Promise<SidebarCategory[]> {
+  const localePath = locale !== 'en' ? path.join(DOCS_DIR, locale, '_sidebar.json') : ''
+  const defaultPath = path.join(DOCS_DIR, '_sidebar.json')
+
+  try {
+    if (localePath) {
+      const raw = await fs.readFile(localePath, 'utf-8')
+      return JSON.parse(raw)
+    }
+  } catch {}
+
+  const raw = await fs.readFile(defaultPath, 'utf-8')
   return JSON.parse(raw)
 }
 
-export async function getDocPage(slug: string): Promise<DocPage | null> {
-  const filePath = path.join(DOCS_DIR, `${slug}.md`)
+export async function getDocPage(slug: string, locale = 'en'): Promise<DocPage | null> {
+  const localePath = locale !== 'en' ? path.join(DOCS_DIR, locale, `${slug}.md`) : ''
+  const defaultPath = path.join(DOCS_DIR, `${slug}.md`)
+
   try {
-    const raw = await fs.readFile(filePath, 'utf-8')
+    if (localePath) {
+      const raw = await fs.readFile(localePath, 'utf-8')
+      return parseDocFile(slug, raw)
+    }
+  } catch {}
+
+  try {
+    const raw = await fs.readFile(defaultPath, 'utf-8')
     return parseDocFile(slug, raw)
   } catch {
     return null
   }
 }
 
-export async function getAllDocSlugs(): Promise<string[]> {
-  const sidebar = await getSidebar()
+export async function getAllDocSlugs(locale = 'en'): Promise<string[]> {
+  const sidebar = await getSidebar(locale)
   return sidebar.flatMap(cat => cat.pages.map(p => p.slug))
 }
 
-export async function getAllDocs(): Promise<DocPage[]> {
-  const slugs = await getAllDocSlugs()
+export async function getAllDocs(locale = 'en'): Promise<DocPage[]> {
+  const slugs = await getAllDocSlugs(locale)
   const docs: DocPage[] = []
   for (const slug of slugs) {
-    const doc = await getDocPage(slug)
+    const doc = await getDocPage(slug, locale)
     if (doc) docs.push(doc)
   }
   return docs

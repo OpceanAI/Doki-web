@@ -6,7 +6,7 @@ category: Reference
 
 # Networking
 
-Doki's networking stack provides bridge networks, CNI plugin support, port mapping, and an internal DNS server. The v0.9.2 release fixed several long-standing bugs in the iptables DNAT construction and veth teardown.
+Doki's networking stack provides bridge networks, CNI plugin support, port mapping, and an internal DNS server.
 
 ## Network Types
 
@@ -95,11 +95,11 @@ doki run -p 8080-8090:80 my-server:latest
 
 ### How it works (rootful)
 
-1. `iptables -t nat -A DOKI -p tcp --dport 8080 -j DNAT --to-destination 10.0.0.2:80` (v0.9.2 fix)
+1. `iptables -t nat -A DOKI -p tcp --dport 8080 -j DNAT --to-destination 10.0.0.2:80`
 2. `iptables -t nat -A POSTROUTING -s 10.0.0.2 -j MASQUERADE` (for return path)
 3. `socat` for the actual TCP proxy in rootless mode
 
-### v0.9.2 iptables DNAT fix
+### iptables DNAT
 
 The DNAT rule construction in `pkg/network/manager.go` was using `strings.Split` and missing the `-A` (append) flag in v0.9.1:
 
@@ -126,7 +126,7 @@ Two things fixed:
 
 The DOKI chain is now also auto-created in `pkg/network/cni.go:ensureChains()` (idempotent — safe to call on every container start).
 
-### v0.9.2 port-forwarding fix
+### Port forwarding
 
 The rootless `socat` proxy was connecting to `localhost:containerPort` instead of `containerIP:containerPort`:
 
@@ -141,7 +141,7 @@ The rootless `socat` proxy was connecting to `localhost:containerPort` instead o
 + }
 ```
 
-### UDP support (v0.9.2)
+### UDP support
 
 UDP port forwarding is now supported via `socat -u`:
 
@@ -180,7 +180,7 @@ flowchart TD
     Upstream --> Internet
 ```
 
-### Defaults (v0.9.2)
+### Defaults
 
 | Platform | Default listen | Why |
 |:---------|:----------------|:----|
@@ -225,7 +225,7 @@ The DNS server has a built-in LRU cache:
 - 5-minute TTL per entry
 - Re-registered on container restart
 
-### Key v0.9.2 fixes
+### Key fixes
 
 | File | Bug | Fix |
 |:-----|:----|:----|
@@ -295,9 +295,9 @@ doki network create --ipv6 --subnet fd00::/64 ipv6-net
 
 Doki assigns both v4 and v6 addresses when `ipv6: true`.
 
-## Veth Teardown (v0.9.2 fix)
+## Veth Teardown
 
-When a container is removed, its veth pair must be deleted to avoid leaking interfaces on the host. v0.9.2 added tracking:
+When a container is removed, its veth pair must be deleted to avoid leaking interfaces on the host. Doki tracks veth pairs:
 
 ```go
 // pkg/network/manager.go
@@ -319,7 +319,7 @@ exec.Command("ip", "link", "del", endpoint.VethHost).Run()
 exec.Command("ip", "link", "del", bridgeName).Run()
 ```
 
-Before v0.9.2: `ip link` would show dozens of `veth*` interfaces after running a few containers.
+Without tracking: `ip link` would show dozens of `veth*` interfaces after running a few containers.
 
 ## Security Considerations
 

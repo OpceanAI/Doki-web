@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "products": "Produits",
+    "features": "Fonctionnalités",
+    "performance": "Performances",
+    "community": "Communauté",
+    "changelog": "Journal",
+    "install": "Installer",
+    "docs": "Docs",
+    "getStarted": "Commencer"
+  },
+  "hero": {
+    "headline1": "Moteur de conteneurs",
+    "headline2": "pour Android",
+    "tagline": "Exécutez des conteneurs Docker sur votre téléphone. Un binaire, zéro dépendance, pas de root.",
+    "getStarted": "Commencer"
+  },
+  "footer": {
+    "products": "Produits",
+    "solutions": "Solutions",
+    "resources": "Ressources",
+    "company": "Société",
+    "language": "Langue"
+  }
+}

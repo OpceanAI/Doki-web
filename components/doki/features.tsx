@@ -1,19 +1,22 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useTranslations } from "next-intl"
 
 const features = [
   {
+    key: "zeroDeps",
     title: "Zero Dependencies",
     description: "Single static binary. No containerd, no runc, no libseccomp, no systemd. Just copy and run. Ships everything you need in one ~8.5MB executable.",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 5.25v9l9 5.25m0-9v9" />
       </svg>
     ),
     large: true,
   },
   {
+    key: "ociPodman",
     title: "OCI + Podman API v5",
     description: "Full Docker Hub support. 39 Podman API v5 endpoints. Same API as Docker Engine v1.54. Your docker-compose files work out of the box.",
     icon: (
@@ -23,6 +26,7 @@ const features = [
     ),
   },
   {
+    key: "kubernetes",
     title: "Kubernetes 1.32",
     description: "6 components: API Server, Kubelet, Scheduler, 10 Controllers, Kube-proxy, CoreDNS. 80 K8s API types. Full kubectl client.",
     icon: (
@@ -32,6 +36,7 @@ const features = [
     ),
   },
   {
+    key: "nineBinaries",
     title: "9 Binaries, 8.56MB",
     description: "doki, dokid, doki-compose, doki-init, doki-kube, doki-kubectl. All in one package. ARM64, ARMv7, macOS native.",
     icon: (
@@ -42,6 +47,7 @@ const features = [
     wide: true,
   },
   {
+    key: "macosNative",
     title: "macOS Native VZ",
     description: "Apple Virtualization.framework for macOS 11+. QEMU fallback for Intel Macs. Sandbox backend for lightweight isolation.",
     icon: (
@@ -51,6 +57,7 @@ const features = [
     ),
   },
   {
+    key: "mesh",
     title: "DokiLink Mesh",
     description: "Peer-to-peer container networking. mDNS auto-discovery. Encrypted with TLS 1.3 + secretbox. Zero config.",
     icon: (
@@ -60,6 +67,7 @@ const features = [
     ),
   },
   {
+    key: "landlock",
     title: "Landlock Sandbox",
     description: "Linux 5.13+ ABI v9 support. Filesystem, network, scope rules. Auto-detection with fallback. Secure by default.",
     icon: (
@@ -69,6 +77,7 @@ const features = [
     ),
   },
   {
+    key: "rootless",
     title: "100% Rootless",
     description: "Runs as unprivileged user on Android. No root, no namespace tricks. Just works.",
     icon: (
@@ -80,6 +89,7 @@ const features = [
 ]
 
 export function Features() {
+  const t = useTranslations('features')
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
 
@@ -107,15 +117,15 @@ export function Features() {
           }`}
         >
           <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--mist)] mb-4">
-            Features
+            {t('title')}
           </p>
           <h2 className="font-sans font-semibold text-[clamp(32px,4.5vw,48px)] tracking-[-0.02em] text-foreground mb-4 leading-tight">
-            Everything Docker has.
+            {t('headline1')}
             <br />
-            <span className="text-[var(--text-70)] font-normal">Without the overhead.</span>
+            <span className="text-[var(--text-70)] font-normal">{t('headline2')}</span>
           </h2>
           <p className="text-[17px] text-[var(--text-70)] leading-relaxed font-serif">
-            Docker cannot run on Android. Doki can. Same OCI images, same workflow, fraction of the resources.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -150,7 +160,7 @@ export function Features() {
                       isLarge ? "text-[20px]" : "text-[15px]"
                     }`}
                   >
-                    {feature.title}
+                    {t(feature.key + 'Title')}
                   </h3>
                 </div>
                 <p
@@ -158,7 +168,7 @@ export function Features() {
                     isLarge ? "text-[15px]" : "text-[14px]"
                   }`}
                 >
-                  {feature.description}
+                  {t(feature.key + 'Desc')}
                 </p>
               </div>
             )

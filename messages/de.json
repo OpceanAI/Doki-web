@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "products": "Produkte",
+    "features": "Funktionen",
+    "performance": "Leistung",
+    "community": "Community",
+    "changelog": "Änderungen",
+    "install": "Installieren",
+    "docs": "Dokumentation",
+    "getStarted": "Loslegen"
+  },
+  "hero": {
+    "headline1": "Container-Engine",
+    "headline2": "für Android",
+    "tagline": "Führe Docker-Container auf deinem Telefon aus. Eine Binärdatei, keine Abhängigkeiten, kein Root.",
+    "getStarted": "Loslegen"
+  },
+  "footer": {
+    "products": "Produkte",
+    "solutions": "Lösungen",
+    "resources": "Ressourcen",
+    "company": "Unternehmen",
+    "language": "Sprache"
+  }
+}

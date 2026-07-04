@@ -136,11 +136,11 @@ export function Navigation() {
           <div className="hidden md:flex items-center gap-5" ref={dropdownRef}>
             {navItems.map((item) => {
               if ("dropdown" in item) {
-                const isOpen = openDropdown === item.label
+                const isOpen = openDropdown === item.key
                 return (
-                  <div key={item.label} className="relative">
+                  <div key={item.key} className="relative">
                     <button
-                      onClick={() => setOpenDropdown(isOpen ? null : item.label)}
+                      onClick={() => setOpenDropdown(isOpen ? null : item.key)}
                       className="nav-link text-[13px] flex items-center gap-1"
                       aria-expanded={isOpen}
                     >

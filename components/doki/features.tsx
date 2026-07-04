@@ -117,7 +117,7 @@ export function Features() {
           }`}
         >
           <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--mist)] mb-4">
-            {t('title')}
+            {t('label')}
           </p>
           <h2 className="font-sans font-semibold text-[clamp(32px,4.5vw,48px)] tracking-[-0.02em] text-foreground mb-4 leading-tight">
             {t('headline1')}
@@ -125,7 +125,7 @@ export function Features() {
             <span className="text-[var(--text-70)] font-normal">{t('headline2')}</span>
           </h2>
           <p className="text-[17px] text-[var(--text-70)] leading-relaxed font-serif">
-            {t('subtitle')}
+            {t('subtext')}
           </p>
         </div>
 

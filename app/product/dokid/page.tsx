@@ -65,10 +65,10 @@ export default function DokidPage() {
         <div className="max-w-[var(--max-width)] mx-auto px-[var(--gutter)]">
           <div className="surface-card p-6 md:p-8 mb-12">
             <code className="text-[13px] font-mono text-[var(--clay)] block whitespace-pre-wrap"># Start the daemon
-$ dokid --listen unix:
+$ dokid --listen unix:///run/doki/dokid.sock
 
 # From another terminal, use the CLI
-$ doki --remote unix:
+$ doki --remote unix:///run/doki/dokid.sock ps
 CONTAINER ID   IMAGE          STATUS        PORTS
 abc123         nginx:alpine   Up 2 hours    0.0.0.0:8080-&gt;80/tcp</code>
           </div>

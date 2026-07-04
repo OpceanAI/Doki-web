@@ -75,15 +75,7 @@ export function Footer() {
             <p className="text-[13px] text-[rgba(250,249,245,0.6)] leading-relaxed font-serif">
               The universal container engine. Runs on Android, Linux, and macOS.
             </p>
-            <a
-              href="https://huggingface.co/OpceanAI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 text-[rgba(250,249,245,0.5)] hover:text-[var(--paper)] transition-colors"
-              aria-label="Powered by Hugging Face"
-            >
-              <HuggingFace size={56} />
-            </a>
+
           </div>
 
           {}

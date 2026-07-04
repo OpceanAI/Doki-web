@@ -1,37 +1,9 @@
+"use client"
+
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 import { HuggingFace } from '@lobehub/icons'
 import { LanguageSwitcher } from "./language-switcher"
-
-const footerLinks = {
-  Products: [
-    { label: "Doki CLI", href: "/product/doki-cli" },
-    { label: "Doki Compose", href: "/product/doki-compose" },
-    { label: "Doki Kube", href: "/product/doki-kube" },
-    { label: "Dokid", href: "/product/dokid" },
-    { label: "Releases", href: "https://github.com/OpceanAI/Doki/releases" },
-  ],
-  Solutions: [
-    { label: "Android", href: "/solutions/android" },
-    { label: "Linux", href: "/solutions/linux" },
-    { label: "macOS", href: "/solutions/macos" },
-    { label: "CI/CD", href: "/solutions/ci-cd" },
-    { label: "Edge Computing", href: "/solutions/ci-cd" },
-  ],
-  Resources: [
-    { label: "Documentation", href: "/docs/home" },
-    { label: "Changelog", href: "/changelog" },
-    { label: "Security", href: "/security" },
-    { label: "Performance", href: "/performance" },
-    { label: "Doki-proot", href: "https://github.com/OpceanAI/Doki-proot" },
-  ],
-  Company: [
-    { label: "GitHub", href: "https://github.com/OpceanAI/Doki" },
-    { label: "About", href: "https://github.com/OpceanAI" },
-    { label: "Hugging Face", href: "https://huggingface.co/OpceanAI" },
-    { label: "Contact", href: "mailto:contact@opceanai.com" },
-    { label: "r/termux", href: "https://reddit.com/r/termux" },
-  ],
-}
 
 const socialLinks = [
   {
@@ -60,11 +32,56 @@ const socialLinks = [
 ]
 
 export function Footer() {
+  const t = useTranslations('footer')
+
+  const footerLinks = [
+    {
+      titleKey: "products",
+      links: [
+        { labelKey: "dokiCli",      href: "/product/doki-cli" },
+        { labelKey: "dokiCompose",  href: "/product/doki-compose" },
+        { labelKey: "dokiKube",     href: "/product/doki-kube" },
+        { labelKey: "dokid",        href: "/product/dokid" },
+        { labelKey: "releases",     href: "https://github.com/OpceanAI/Doki/releases" },
+      ],
+    },
+    {
+      titleKey: "solutions",
+      links: [
+        { labelKey: "android",      href: "/solutions/android" },
+        { labelKey: "linux",        href: "/solutions/linux" },
+        { labelKey: "macOS",        href: "/solutions/macos" },
+        { labelKey: "ciCd",         href: "/solutions/ci-cd" },
+        { labelKey: "edgeComputing",href: "/solutions/ci-cd" },
+      ],
+    },
+    {
+      titleKey: "resources",
+      links: [
+        { labelKey: "documentation",href: "/docs/home" },
+        { labelKey: "changelog",    href: "/changelog" },
+        { labelKey: "security",     href: "/security" },
+        { labelKey: "performance",  href: "/performance" },
+        { labelKey: "dokiProot",    href: "https://github.com/OpceanAI/Doki-proot" },
+      ],
+    },
+    {
+      titleKey: "company",
+      links: [
+        { labelKey: "github",       href: "https://github.com/OpceanAI/Doki" },
+        { labelKey: "about",        href: "https://github.com/OpceanAI" },
+        { labelKey: "huggingFace",  href: "https://huggingface.co/OpceanAI" },
+        { labelKey: "contact",      href: "mailto:contact@opceanai.com" },
+        { labelKey: "rTermux",      href: "https://reddit.com/r/termux" },
+      ],
+    },
+  ]
+
   return (
     <footer className="bg-[var(--ink)] text-[var(--paper)]">
       <div className="max-w-[var(--max-width)] mx-auto px-[var(--gutter)] py-16">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
-          {}
+          {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
               <div className="w-8 h-8 rounded-md bg-[var(--clay)] flex items-center justify-center">
@@ -73,27 +90,26 @@ export function Footer() {
               <span className="font-sans font-semibold text-[15px] tracking-[-0.01em]">Doki</span>
             </div>
             <p className="text-[13px] text-[rgba(250,249,245,0.6)] leading-relaxed font-serif">
-              The universal container engine. Runs on Android, Linux, and macOS.
+              {t('brandTagline')}
             </p>
-
           </div>
 
-          {}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
+          {/* Link columns */}
+          {footerLinks.map((col) => (
+            <div key={col.titleKey}>
               <h4 className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--mist)] mb-4">
-                {title}
+                {t(col.titleKey)}
               </h4>
               <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link.label}>
+                {col.links.map((link) => (
+                  <li key={link.labelKey}>
                     <Link
                       href={link.href}
                       target={link.href.startsWith("http") ? "_blank" : undefined}
                       rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="text-[13px] text-[rgba(250,249,245,0.6)] hover:text-[var(--paper)] transition-colors font-serif"
                     >
-                      {link.label}
+                      {t(link.labelKey)}
                     </Link>
                   </li>
                 ))}
@@ -102,11 +118,11 @@ export function Footer() {
           ))}
         </div>
 
-        {}
+        {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-[rgba(255,255,255,0.08)]">
           <div className="flex items-center gap-4">
             <p className="text-[12px] text-[var(--mist)] font-mono">
-              &copy; 2026 OpceanAI. Apache 2.0 License.
+              {t('copyright')}
             </p>
             <LanguageSwitcher />
           </div>

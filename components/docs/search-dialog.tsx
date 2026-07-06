@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { useTranslations } from "next-intl"
-import Fuse from 'fuse.js'
+import Fuse, { type FuseResult } from 'fuse.js'
 import {
   CommandDialog,
   CommandInput,
@@ -24,7 +24,7 @@ export function DocSearch({
   const t = useTranslations('docs')
   const router = useRouter()
   const [fuse, setFuse] = useState<Fuse<SearchEntry> | null>(null)
-  const [results, setResults] = useState<Fuse.FuseResult<SearchEntry>[]>([])
+  const [results, setResults] = useState<FuseResult<SearchEntry>[]>([])
   const [query, setQuery] = useState('')
 
   useEffect(() => {

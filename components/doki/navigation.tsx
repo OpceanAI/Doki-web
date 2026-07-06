@@ -64,9 +64,9 @@ export function Navigation() {
       { threshold: 0.3, rootMargin: "-80px 0px -50% 0px" }
     )
     navItems
-      .filter((item) => "href" in item && item.href.startsWith("#"))
+      .filter((item): item is { href: string } => "href" in item && typeof item.href === "string" && item.href.startsWith("#"))
       .forEach((item) => {
-        const el = document.querySelector((item as { href: string }).href)
+        const el = document.querySelector(item.href)
         if (el) observer.observe(el)
       })
     return () => observer.disconnect()

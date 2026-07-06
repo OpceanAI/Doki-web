@@ -18,8 +18,9 @@ export function useMousePosition(ref?: RefObject<HTMLElement | null>) {
 
   useEffect(() => {
     const target = ref?.current || window
-    target.addEventListener("mousemove", handleMouseMove, { passive: true })
-    return () => target.removeEventListener("mousemove", handleMouseMove)
+    const listener = handleMouseMove as EventListener
+    target.addEventListener("mousemove", listener, { passive: true })
+    return () => target.removeEventListener("mousemove", listener)
   }, [ref, handleMouseMove])
 
   return position

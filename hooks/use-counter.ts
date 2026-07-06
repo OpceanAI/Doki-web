@@ -6,7 +6,7 @@ export function useCounter(target: number, duration = 1500, startOnVisible = tru
   const [count, setCount] = useState(0)
   const [hasStarted, setHasStarted] = useState(!startOnVisible)
   const ref = useRef<HTMLDivElement>(null)
-  const rafRef = useRef<number>()
+  const rafRef = useRef<number | undefined>(undefined)
 
   const animate = useCallback(() => {
     const startTime = performance.now()

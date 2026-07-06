@@ -5,7 +5,16 @@ import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { ThemeToggle } from "@/components/docs/theme-toggle"
 
-const navItems = [
+type NavLink = { href: string; key: string; dropdown?: undefined; links?: undefined }
+type NavDropdown = {
+  key: string
+  dropdown: true
+  links: { href: string; key: string; descKey: string }[]
+  href?: undefined
+}
+type NavItem = NavLink | NavDropdown
+
+const navItems: NavItem[] = [
   {
     key: "products",
     dropdown: true,
@@ -134,10 +143,9 @@ export function Navigation() {
             </span>
           </Link>
 
-          {}
           <div className="hidden md:flex items-center gap-5" ref={dropdownRef}>
             {navItems.map((item) => {
-              if ("dropdown" in item) {
+              if (item.dropdown) {
                 const isOpen = openDropdown === item.key
                 return (
                   <div key={item.key} className="relative">
@@ -146,14 +154,14 @@ export function Navigation() {
                       className="nav-link text-[13px] flex items-center gap-1"
                       aria-expanded={isOpen}
                     >
-                  {t(item.key)}
-                  <svg className={`w-3 h-3 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      {t(item.key)}
+                      <svg className={`w-3 h-3 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
                     </button>
                     {isOpen && (
                       <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-lg border border-[var(--border-subtle)] bg-background/95 backdrop-blur-md shadow-lg py-2">
-                        {item.links.map((d: { href: string; key: string; descKey: string }) => (
+                        {item.links.map((d) => (
                           <Link
                             key={d.href}
                             href={d.href}
@@ -171,17 +179,16 @@ export function Navigation() {
               }
               return (
                 <Link
-                  key={(item as { href: string; key: string }).href}
-                  href={(item as { href: string; key: string }).href}
-                  className={`nav-link text-[13px] ${isActive((item as { href: string }).href) ? "active" : ""}`}
+                  key={item.href}
+                  href={item.href}
+                  className={`nav-link text-[13px] ${isActive(item.href) ? "active" : ""}`}
                 >
-                  {t((item as { key: string }).key)}
+                  {t(item.key)}
                 </Link>
               )
             })}
           </div>
 
-          {}
           <div className="hidden md:flex items-center gap-2">
             <ThemeToggle />
             <Link href="/install" className="btn-primary !py-2 !px-4 !text-[13px]">
@@ -189,7 +196,6 @@ export function Navigation() {
             </Link>
           </div>
 
-          {}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 -mr-2"
@@ -205,12 +211,10 @@ export function Navigation() {
         </nav>
       </header>
 
-      {}
       {mobileOpen && (
         <div className="fixed inset-0 z-40 bg-foreground/10 backdrop-blur-sm md:hidden" onClick={closeSheet} aria-hidden="true" />
       )}
 
-      {}
       <div
         ref={sheetRef}
         className={`fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-[var(--border-subtle)] rounded-t-[20px] transform transition-transform duration-300 md:hidden ${
@@ -226,14 +230,14 @@ export function Navigation() {
         <nav className="px-6 pb-8 pt-2 max-h-[70vh] overflow-y-auto">
           <div className="flex flex-col gap-1">
             {navItems.map((item) => {
-              if ("dropdown" in item) {
+              if (item.dropdown) {
                 return (
                   <div key={item.key}>
                     <div className="py-3 text-[16px] font-medium border-b border-[var(--border-subtle)] font-serif">
                       <span className="text-[var(--text-70)] text-[13px] font-mono uppercase tracking-[0.14em]">{t(item.key)}</span>
                     </div>
                     <div className="ml-4 mt-1 mb-2">
-                      {item.links.map((d: { href: string; key: string; descKey: string }) => (
+                      {item.links.map((d) => (
                         <Link
                           key={d.href}
                           href={d.href}
@@ -248,17 +252,16 @@ export function Navigation() {
                   </div>
                 )
               }
-              const link = item as { href: string; key: string }
               return (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={item.href}
+                  href={item.href}
                   onClick={closeSheet}
                   className={`py-4 text-[16px] font-medium border-b border-[var(--border-subtle)] transition-colors font-serif ${
-                    isActive(link.href) ? "text-foreground" : "text-[var(--text-70)] hover:text-foreground"
+                    isActive(item.href) ? "text-foreground" : "text-[var(--text-70)] hover:text-foreground"
                   }`}
                 >
-                  {t(link.key)}
+                  {t(item.key)}
                 </Link>
               )
             })}

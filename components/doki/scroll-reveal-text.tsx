@@ -10,8 +10,12 @@ interface ScrollRevealTextProps {
 
 export function ScrollRevealText({ text, className = "", as: Tag = "p" }: ScrollRevealTextProps) {
   const [revealed, setRevealed] = useState(false)
-  const ref = useRef<HTMLElement>(null)
+  const ref = useRef<HTMLElement | null>(null)
   const words = text.split(" ")
+
+  const setRef = useCallback((node: HTMLElement | null) => {
+    ref.current = node
+  }, [])
 
   useEffect(() => {
     const el = ref.current
@@ -32,7 +36,7 @@ export function ScrollRevealText({ text, className = "", as: Tag = "p" }: Scroll
   const handleInView = useCallback(() => setRevealed(true), [])
 
   return (
-    <Tag ref={ref} className={className}>
+    <Tag ref={setRef} className={className}>
       {words.map((word, i) => (
         <span
           key={i}

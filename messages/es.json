@@ -25,7 +25,7 @@
     }
   },
   "hero": {
-    "version": "v0.11.0 · Podman API v5 · 8.56MB",
+    "version": "v0.11.1 · Podman API v5 · 8.56MB",
     "headline1": "Motor de contenedores",
     "headline2": "para Android",
     "tagline": "Ejecuta contenedores Docker en tu teléfono. Un binario, cero dependencias, sin root.",
@@ -103,7 +103,7 @@
     "footnote": "Benchmarks medidos en Pixel 8 (Android 14). Docker medido en Ubuntu 24.04 (x86_64). Los resultados pueden variar."
   },
   "mesh": {
-    "version": "v0.11.0",
+    "version": "v0.11.1",
     "headline1": "Mesh. Kubernetes.",
     "headline2": "macOS nativo.",
     "subtext": "Todo lo que necesitas para ejecutar contenedores en cualquier lugar.",
@@ -125,7 +125,8 @@
     "macosDesc": "Apple Virtualization.framework vía puente cgo+ObjC. QEMU como respaldo para Intel Macs con argumentos conscientes de arquitectura.",
     "macosNote": "",
     "macosCodeTitle": "Backend macOS",
-    "noteLabel": "Nota:"
+    "noteLabel": "Nota:",
+    "subtitle": "Todo lo que necesitás para ejecutar contenedores en cualquier lado."
   },
   "testimonials": {
     "label": "Comunidad",
@@ -176,6 +177,8 @@
     "prereqs": "Requisitos previos",
     "steps": "Pasos",
     "whatsNext": "¿Qué sigue?",
+    "backToHome": "Volver al inicio",
+    "copy": "Copiar",
     "quickStart": "Guía de inicio rápido",
     "docs": "Documentación"
   },

@@ -25,7 +25,7 @@
     }
   },
   "hero": {
-    "version": "v0.11.0 · Podman API v5 · 8.56MB",
+    "version": "v0.11.1 · Podman API v5 · 8.56MB",
     "headline1": "Container engine",
     "headline2": "for Android",
     "tagline": "Run Docker containers on your phone. One binary, zero dependencies, no root required.",
@@ -103,7 +103,7 @@
     "footnote": "Benchmarks measured on Pixel 8 (Android 14). Docker measured on Ubuntu 24.04 (x86_64). Your mileage may vary."
   },
   "mesh": {
-    "version": "v0.11.0",
+    "version": "v0.11.1",
     "headline1": "Mesh. Kubernetes.",
     "headline2": "macOS native.",
     "subtext": "Everything you need to run containers anywhere.",
@@ -125,7 +125,8 @@
     "macosDesc": "Apple Virtualization.framework via cgo+ObjC bridge (VZVirtualMachineConfiguration, VZLinuxBootLoader, VZVirtioFileSystemDevice). QEMU fallback for Intel Macs with arch-aware args.",
     "macosNote": "",
     "macosCodeTitle": "macOS backend",
-    "noteLabel": "Note:"
+    "noteLabel": "Note:",
+    "subtitle": "Everything you need to run containers anywhere."
   },
   "testimonials": {
     "label": "Community",
@@ -171,11 +172,39 @@
   },
   "install": {
     "title": "Install Doki",
-    "subtitle": "One binary. Zero dependencies. Run anywhere.",
+    "subtitle": "One command. Zero dependencies. Running in seconds.",
     "platformLabel": "Platform",
     "prereqs": "Prerequisites",
+    "prereqTermux": "Termux app installed",
+    "prereqCurl": "curl or wget",
+    "prereqRam": "4GB+ RAM recommended",
+    "prereqAndroid": "Android 7.0+",
+    "prereqTar": "tar",
+    "prereqKernel": "Linux kernel 4.0+",
+    "prereqArch": "ARM64 or x86_64",
+    "prereqMacos": "macOS 11+ for VZ backend",
+    "prereqSilicon": "Apple Silicon or Intel",
     "steps": "Steps",
+    "stepInstallDoki": "Install Doki",
+    "stepStartDaemon": "Start the daemon",
+    "stepPullImage": "Pull a base image",
+    "stepRunContainer": "Run a container",
+    "stepDownload": "Download for ARM64",
+    "stepX86": "Or for x86_64",
+    "stepVerify": "Verify installation",
+    "stepAppleSilicon": "Download for Apple Silicon",
+    "stepIntel": "Or for Intel Macs",
     "whatsNext": "What's next?",
+    "whatsNextChangelog": "View changelog",
+    "whatsNextChangelogDesc": "See what's new in v0.11.1",
+    "whatsNextDocs": "Read the docs",
+    "whatsNextDocsDesc": "Full documentation",
+    "whatsNextGithub": "Star on GitHub",
+    "whatsNextGithubDesc": "Support the project",
+    "whatsNextCommunity": "Join community",
+    "whatsNextCommunityDesc": "r/termux on Reddit",
+    "backToHome": "Back to home",
+    "copy": "Copy",
     "quickStart": "Quick Start guide",
     "docs": "Documentation"
   },
